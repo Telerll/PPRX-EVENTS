@@ -22,6 +22,7 @@
       --accent: #ff7b00;
       --accent-soft: #ffb347;
       --line-card: rgba(255, 255, 255, 0.06);
+      --line-soft: rgba(255, 255, 255, 0.08);
       --shadow-dark: rgba(0, 0, 0, 0.35);
     }
 
@@ -108,21 +109,97 @@
       width: 100%;
       max-width: 1250px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.02fr 1fr;
       gap: 28px;
-      align-items: center;
+      align-items: stretch;
     }
 
     .hero-visual {
       position: relative;
       min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 28px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      background:
+        radial-gradient(circle at top left, rgba(255, 123, 0, 0.10), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(255, 179, 71, 0.07), transparent 24%),
+        linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
       border: 1px solid rgba(255,255,255,0.08);
       box-shadow: 0 10px 35px rgba(0, 0, 0, 0.30);
       overflow: hidden;
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      background: url('logo1.png') center/contain no-repeat;
+      opacity: 0.08;
+      filter: grayscale(100%);
+    }
+
+    .hero-visual-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 430px;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .hero-visual-badge {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #f2f2f2;
+      font-size: 12px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-visual h3 {
+      font-size: 42px;
+      line-height: 1.05;
+      margin-bottom: 14px;
+      color: #ffffff;
+    }
+
+    .hero-visual p {
+      color: #d7d7d7;
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    .hero-visual-lines {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .hero-visual-lines span {
+      width: 48px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+      opacity: 0.85;
     }
 
     .hero-box {
@@ -145,8 +222,8 @@
     }
 
     .hero-logo {
-      width: 120px;
-      height: 120px;
+      width: 122px;
+      height: 122px;
       object-fit: contain;
       flex-shrink: 0;
       filter: drop-shadow(0 0 10px rgba(255, 123, 0, 0.20));
@@ -263,53 +340,56 @@
       transform: translateY(-2px);
     }
 
-    /* ABOUT US */
-    .about-split {
+    /* ABOUT US - ONE CARD */
+    .about-card {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .about-visual,
-    .about-content {
+      gap: 0;
       border-radius: 26px;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.08);
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      background: linear-gradient(135deg, rgba(48,48,48,0.95), rgba(90,90,90,0.80));
     }
 
     .about-visual {
       min-height: 500px;
       background:
-        radial-gradient(circle at center, rgba(255,123,0,0.15), transparent 60%),
-        url('hex-bg.png') center / 70% no-repeat;
-      background-color: #0f0f16;
+        linear-gradient(to right, rgba(0,0,0,0.42), rgba(0,0,0,0.12)),
+        radial-gradient(circle at center, rgba(255,123,0,0.10), transparent 60%),
+        url('hex-bg.png') center / 78% no-repeat;
+      background-color: #111117;
       transition: all 0.4s ease;
+      position: relative;
     }
 
-    .about-visual:hover {
-      transform: scale(1.02);
-      box-shadow:
-        0 0 20px rgba(255,123,0,0.35),
-        0 0 40px rgba(255,123,0,0.15),
-        0 10px 30px rgba(0,0,0,0.35);
+    .about-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 30px rgba(255,123,0,0.06);
+      pointer-events: none;
     }
 
     .about-content {
-      background: linear-gradient(135deg, rgba(48,48,48,0.95), rgba(90,90,90,0.80));
       padding: 48px 36px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       text-align: center;
       transition: all 0.4s ease;
+      position: relative;
     }
 
-    .about-content:hover {
+    .about-card:hover .about-visual {
+      filter: brightness(1.04);
+    }
+
+    .about-card:hover {
       box-shadow:
-        0 0 18px rgba(255,123,0,0.25),
-        0 0 35px rgba(255,123,0,0.12);
+        0 0 18px rgba(255,123,0,0.18),
+        0 0 36px rgba(255,123,0,0.08),
+        0 10px 30px rgba(0,0,0,0.30);
     }
 
     .about-content h2 {
@@ -625,12 +705,12 @@
     /* RESPONSIVE */
     @media (max-width: 1100px) {
       .hero-wrap,
-      .about-split {
+      .about-card {
         grid-template-columns: 1fr;
       }
 
       .hero-visual {
-        min-height: 420px;
+        min-height: 380px;
         order: 2;
       }
 
@@ -700,7 +780,7 @@
       }
 
       .hero-visual {
-        min-height: 300px;
+        min-height: 280px;
         border-radius: 22px;
       }
 
@@ -796,7 +876,16 @@
 
   <header id="home" class="hero-section">
     <div class="hero-wrap reveal">
-      <div class="hero-visual"></div>
+      <div class="hero-visual">
+        <div class="hero-visual-inner">
+          <span class="hero-visual-badge">PPRX Premium Event Solutions</span>
+          <h3>Professional Events. Seamless Execution.</h3>
+          <p>Delivering polished event experiences with reliable management, production, and technical support.</p>
+          <div class="hero-visual-lines">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
 
       <div class="hero-box">
         <div class="hero-top">
@@ -898,7 +987,7 @@
 
   <section id="about" class="reveal">
     <div class="container">
-      <div class="about-split">
+      <div class="about-card">
         <div class="about-visual"></div>
 
         <div class="about-content">
