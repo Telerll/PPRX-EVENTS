@@ -21,7 +21,6 @@
       --text-muted: #cccccc;
       --accent: #ff7b00;
       --accent-soft: #ffb347;
-      --line-soft: rgba(255, 255, 255, 0.08);
       --line-card: rgba(255, 255, 255, 0.06);
       --shadow-dark: rgba(0, 0, 0, 0.35);
     }
@@ -85,113 +84,141 @@
       justify-content: center;
       padding: 40px 20px;
       overflow: hidden;
-      background: #090910;
-      isolation: isolate;
-    }
-
-    .hex-bg {
-      position: absolute;
-      inset: 0;
-      background: url('hex-bg.png') center/cover no-repeat;
-      opacity: 0.26;
-      filter: blur(6px);
-      transform: scale(1.05);
-      z-index: 0;
-      animation: slowZoom 18s ease-in-out infinite alternate;
+      background:
+        radial-gradient(circle at top right, rgba(255, 123, 0, 0.10), transparent 30%),
+        linear-gradient(180deg, #090910, #0f2027);
     }
 
     .hero-section::before {
       content: "";
       position: absolute;
       inset: 0;
-      z-index: 1;
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0.35)
+      );
+      pointer-events: none;
+    }
+
+    .hero-wrap {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1250px;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.30);
+      overflow: hidden;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0.58),
-        rgba(0, 0, 0, 0.74),
-        rgba(0, 0, 0, 0.86)
+        rgba(255,255,255,0.02),
+        rgba(0,0,0,0.10)
       );
+      pointer-events: none;
+    }
+
+    .hero-hex-image {
+      width: 96%;
+      max-width: 620px;
+      object-fit: contain;
+      animation: floatHex 7s ease-in-out infinite alternate;
+      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.30));
     }
 
     .hero-box {
       position: relative;
-      z-index: 2;
       width: 100%;
-      max-width: 1200px;
-      display: grid;
-      grid-template-columns: 420px 1fr;
-      gap: 40px;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.09);
+      background: rgba(10, 10, 18, 0.62);
+      border: 1px solid rgba(255, 255, 255, 0.10);
       border-radius: 28px;
       padding: 42px;
       box-shadow: 0 10px 35px var(--shadow-dark);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
     }
 
-    .hero-left {
+    .hero-top {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 18px;
+      margin-bottom: 20px;
     }
 
     .hero-logo {
-      width: 100%;
-      max-width: 360px;
-      height: auto;
+      width: 88px;
+      height: 88px;
       object-fit: contain;
-      filter: drop-shadow(0 0 14px rgba(255, 123, 0, 0.32));
-      animation: logoFloatGlow 3.5s ease-in-out infinite;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 10px rgba(255, 123, 0, 0.20));
+      animation: logoFloatGlow 4s ease-in-out infinite;
     }
 
-    .hero-right {
-      text-align: left;
+    .hero-brand {
+      min-width: 0;
     }
 
     .hero-label {
       display: inline-block;
-      font-size: 12px;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      padding: 8px 16px;
+      padding: 8px 14px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.08);
       color: #f0f0f0;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
       border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .hero-right h1 {
-      font-size: 56px;
-      line-height: 1.08;
-      margin-bottom: 8px;
+      font-size: 58px;
+      line-height: 1.02;
+      margin-bottom: 6px;
       color: #ffffff;
       letter-spacing: 1px;
       text-shadow:
         0 0 2px rgba(255, 255, 255, 0.45),
-        0 0 6px rgba(255, 255, 255, 0.12),
-        0 0 12px rgba(255, 159, 67, 0.10);
-      animation: glowPulseTitle 3.2s ease-in-out infinite;
+        0 0 6px rgba(255, 255, 255, 0.10);
     }
 
     .hero-right h2 {
       font-size: 30px;
       color: #ff9f43;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       font-weight: 700;
       text-shadow:
-        0 0 3px rgba(255, 179, 71, 0.55),
-        0 0 8px rgba(255, 123, 0, 0.25);
-      animation: glowPulseSubtitle 3s ease-in-out infinite;
+        0 0 3px rgba(255, 179, 71, 0.45),
+        0 0 8px rgba(255, 123, 0, 0.18);
     }
 
     .hero-text {
-      max-width: 680px;
       color: #dddddd;
       font-size: 18px;
       margin-bottom: 26px;
+      max-width: 640px;
     }
 
     .hero-buttons {
@@ -215,16 +242,15 @@
       background: linear-gradient(90deg, var(--accent), var(--accent-soft));
       color: white;
       box-shadow:
-        0 0 8px rgba(255, 123, 0, 0.28),
-        0 0 18px rgba(255, 123, 0, 0.16);
-      animation: buttonGlow 2.8s ease-in-out infinite;
+        0 0 8px rgba(255, 123, 0, 0.25),
+        0 0 18px rgba(255, 123, 0, 0.14);
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px) scale(1.01);
+      transform: translateY(-2px);
       box-shadow:
-        0 0 12px rgba(255, 123, 0, 0.40),
-        0 0 22px rgba(255, 123, 0, 0.24);
+        0 0 12px rgba(255, 123, 0, 0.35),
+        0 0 22px rgba(255, 123, 0, 0.20);
     }
 
     .btn-secondary {
@@ -428,7 +454,6 @@
       box-shadow:
         0 0 8px rgba(255, 123, 0, 0.28),
         0 0 18px rgba(255, 123, 0, 0.16);
-      animation: buttonGlow 2.8s ease-in-out infinite;
       transition: all 0.3s ease;
       display: inline-block;
       font-weight: bold;
@@ -551,19 +576,38 @@
     }
 
     /* RESPONSIVE */
-    @media (max-width: 992px) {
-      .hero-box {
+    @media (max-width: 1100px) {
+      .hero-wrap {
         grid-template-columns: 1fr;
-        text-align: center;
+      }
+
+      .hero-visual {
+        min-height: 420px;
+        order: 2;
+      }
+
+      .hero-box {
+        order: 1;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .dual-grid,
+      .triple-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-box {
         padding: 34px 22px;
+      }
+
+      .hero-top {
+        flex-direction: column;
+        text-align: center;
       }
 
       .hero-right {
         text-align: center;
-      }
-
-      .hero-logo {
-        max-width: 300px;
       }
 
       .hero-right h1 {
@@ -584,11 +628,6 @@
       .hero-tags {
         justify-content: center;
       }
-
-      .dual-grid,
-      .triple-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     @media (max-width: 768px) {
@@ -596,14 +635,23 @@
         padding: 24px 14px;
       }
 
+      .hero-visual {
+        min-height: 300px;
+        border-radius: 22px;
+      }
+
+      .hero-hex-image {
+        width: 94%;
+      }
+
       .hero-box {
         padding: 26px 16px;
-        gap: 24px;
         border-radius: 22px;
       }
 
       .hero-logo {
-        max-width: 240px;
+        width: 76px;
+        height: 76px;
       }
 
       .hero-right h1 {
@@ -664,65 +712,23 @@
       }
     }
 
-    /* ANIMATIONS */
-    @keyframes glowPulseTitle {
-      0%, 100% {
-        text-shadow:
-          0 0 2px rgba(255, 255, 255, 0.45),
-          0 0 6px rgba(255, 255, 255, 0.12),
-          0 0 12px rgba(255, 159, 67, 0.10);
+    @keyframes floatHex {
+      from {
+        transform: translateY(0px);
       }
-      50% {
-        text-shadow:
-          0 0 3px rgba(255, 255, 255, 0.58),
-          0 0 8px rgba(255, 255, 255, 0.18),
-          0 0 16px rgba(255, 159, 67, 0.14);
-      }
-    }
-
-    @keyframes glowPulseSubtitle {
-      0%, 100% {
-        text-shadow:
-          0 0 3px rgba(255, 179, 71, 0.55),
-          0 0 8px rgba(255, 123, 0, 0.25);
-      }
-      50% {
-        text-shadow:
-          0 0 5px rgba(255, 179, 71, 0.72),
-          0 0 12px rgba(255, 123, 0, 0.34);
+      to {
+        transform: translateY(-8px);
       }
     }
 
     @keyframes logoFloatGlow {
       0%, 100% {
         transform: translateY(0);
-        filter: drop-shadow(0 0 14px rgba(255, 123, 0, 0.32));
+        filter: drop-shadow(0 0 10px rgba(255, 123, 0, 0.20));
       }
       50% {
-        transform: translateY(-5px);
-        filter: drop-shadow(0 0 18px rgba(255, 123, 0, 0.44));
-      }
-    }
-
-    @keyframes buttonGlow {
-      0%, 100% {
-        box-shadow:
-          0 0 8px rgba(255, 123, 0, 0.28),
-          0 0 18px rgba(255, 123, 0, 0.16);
-      }
-      50% {
-        box-shadow:
-          0 0 12px rgba(255, 123, 0, 0.38),
-          0 0 22px rgba(255, 123, 0, 0.22);
-      }
-    }
-
-    @keyframes slowZoom {
-      from {
-        transform: scale(1.05);
-      }
-      to {
-        transform: scale(1.10);
+        transform: translateY(-4px);
+        filter: drop-shadow(0 0 14px rgba(255, 123, 0, 0.28));
       }
     }
   </style>
@@ -730,18 +736,24 @@
 <body>
 
   <header id="home" class="hero-section">
-    <div class="hex-bg"></div>
-
-    <div class="hero-box reveal">
-      <div class="hero-left">
-        <img src="logo1.png" alt="PPRX Events Management Services" class="hero-logo">
+    <div class="hero-wrap reveal">
+      <div class="hero-visual">
+        <img src="hex-bg.png" alt="PPRX Event Highlights" class="hero-hex-image">
       </div>
 
-      <div class="hero-right">
-        <p class="hero-label">Professional Event Consultation, Management and Services</p>
+      <div class="hero-box">
+        <div class="hero-top">
+          <img src="logo1.png" alt="PPRX Events Management Services" class="hero-logo">
 
-        <h1>PPRX</h1>
-        <h2>EVENTS MANAGEMENT SERVICES</h2>
+          <div class="hero-brand">
+            <p class="hero-label">Professional Event Consultation, Management and Services</p>
+
+            <div class="hero-right">
+              <h1>PPRX</h1>
+              <h2>EVENTS MANAGEMENT SERVICES</h2>
+            </div>
+          </div>
+        </div>
 
         <p class="hero-text">
           Don’t just plan an event—create an experience. We provide complete event solutions
