@@ -106,6 +106,7 @@ section:nth-of-type(even):not(.hero-section) {
 .hero-box {
   position: relative;
   width: 100%;
+  margin: auto;
   background:
     radial-gradient(circle at top left, rgba(255, 123, 0, 0.10), transparent 28%),
     radial-gradient(circle at bottom right, rgba(255, 179, 71, 0.07), transparent 24%),
