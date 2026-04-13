@@ -45,7 +45,30 @@ img {
   margin: auto;
 }
 
-/* HERO SECTION */
+section {
+  position: relative;
+  padding: 82px 20px;
+}
+
+section:nth-of-type(even):not(.hero-section) {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 14px;
+}
+
+.section-subtitle {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 38px;
+  color: var(--text-muted);
+  font-size: 17px;
+}
+
+/* HERO */
 .hero-section {
   position: relative;
   min-height: 100vh;
@@ -62,11 +85,11 @@ img {
   position: absolute;
   inset: 0;
   background: url('hex-bg.png') center/cover no-repeat;
-  opacity: 0.32;
-  filter: blur(8px);
-  transform: scale(1.05);
+  opacity: 0.22;
+  filter: blur(4px);
+  transform: scale(1.03);
   z-index: 0;
-  animation: slowZoom 18s ease-in-out infinite alternate;
+  animation: slowZoom 20s ease-in-out infinite alternate;
 }
 
 .hero-section::before {
@@ -76,9 +99,9 @@ img {
   z-index: 1;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.56),
-    rgba(0, 0, 0, 0.72),
-    rgba(0, 0, 0, 0.84)
+    rgba(0, 0, 0, 0.62),
+    rgba(0, 0, 0, 0.76),
+    rgba(0, 0, 0, 0.88)
   );
 }
 
@@ -91,13 +114,13 @@ img {
   grid-template-columns: 420px 1fr;
   gap: 40px;
   align-items: center;
-  background: rgba(255, 255, 255, 0.055);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 28px;
   padding: 42px;
   box-shadow: 0 10px 35px var(--shadow-dark);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .hero-left {
@@ -108,11 +131,11 @@ img {
 
 .hero-logo {
   width: 100%;
-  max-width: 360px;
+  max-width: 340px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 0 16px rgba(255, 123, 0, 0.42));
-  animation: logoFloatGlow 3.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 123, 0, 0.22));
+  animation: logoFloatGlow 4s ease-in-out infinite;
 }
 
 .hero-right {
@@ -139,10 +162,9 @@ img {
   color: #ffffff;
   letter-spacing: 1px;
   text-shadow:
-    0 0 2px rgba(255, 255, 255, 0.55),
-    0 0 8px rgba(255, 255, 255, 0.16),
-    0 0 14px rgba(255, 159, 67, 0.12);
-  animation: glowPulseTitle 3.2s ease-in-out infinite;
+    0 0 2px rgba(255, 255, 255, 0.38),
+    0 0 6px rgba(255, 255, 255, 0.10);
+  animation: glowPulseTitle 3.5s ease-in-out infinite;
 }
 
 .hero-right h2 {
@@ -151,9 +173,9 @@ img {
   margin-bottom: 16px;
   font-weight: 700;
   text-shadow:
-    0 0 4px rgba(255, 179, 71, 0.70),
-    0 0 10px rgba(255, 123, 0, 0.35);
-  animation: glowPulseSubtitle 3s ease-in-out infinite;
+    0 0 3px rgba(255, 179, 71, 0.45),
+    0 0 8px rgba(255, 123, 0, 0.18);
+  animation: glowPulseSubtitle 3.5s ease-in-out infinite;
 }
 
 .hero-text {
@@ -184,16 +206,16 @@ img {
   background: linear-gradient(90deg, var(--accent), var(--accent-soft));
   color: white;
   box-shadow:
-    0 0 10px rgba(255, 123, 0, 0.35),
-    0 0 20px rgba(255, 123, 0, 0.20);
-  animation: buttonGlow 2.8s ease-in-out infinite;
+    0 0 8px rgba(255, 123, 0, 0.22),
+    0 0 16px rgba(255, 123, 0, 0.12);
+  animation: buttonGlow 3s ease-in-out infinite;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px) scale(1.01);
+  transform: translateY(-2px);
   box-shadow:
-    0 0 14px rgba(255, 123, 0, 0.45),
-    0 0 24px rgba(255, 123, 0, 0.28);
+    0 0 12px rgba(255, 123, 0, 0.30),
+    0 0 20px rgba(255, 123, 0, 0.16);
 }
 
 .btn-secondary {
@@ -227,30 +249,6 @@ img {
 .hero-tags span:hover {
   background: rgba(255, 255, 255, 0.11);
   transform: translateY(-2px);
-}
-
-/* GENERAL SECTIONS */
-section {
-  position: relative;
-  padding: 82px 20px;
-}
-
-section:nth-of-type(even):not(.hero-section) {
-  background: rgba(255, 255, 255, 0.01);
-}
-
-.section-title {
-  text-align: center;
-  font-size: 38px;
-  margin-bottom: 14px;
-}
-
-.section-subtitle {
-  text-align: center;
-  max-width: 780px;
-  margin: 0 auto 38px;
-  color: var(--text-muted);
-  font-size: 17px;
 }
 
 /* GRIDS */
@@ -290,10 +288,10 @@ section:nth-of-type(even):not(.hero-section) {
 
 .service-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(255, 179, 71, 0.22);
+  border-color: rgba(255, 179, 71, 0.16);
   box-shadow:
     0 10px 24px rgba(0, 0, 0, 0.26),
-    0 0 14px rgba(255, 123, 0, 0.16);
+    0 0 10px rgba(255, 123, 0, 0.08);
 }
 
 .service-card h3 {
@@ -307,7 +305,6 @@ section:nth-of-type(even):not(.hero-section) {
   font-size: 15px;
 }
 
-/* INFO BOX */
 .info-box {
   max-width: 920px;
   margin: auto;
@@ -355,10 +352,10 @@ section:nth-of-type(even):not(.hero-section) {
 
 .portfolio-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(255, 179, 71, 0.22);
+  border-color: rgba(255, 179, 71, 0.16);
   box-shadow:
     0 10px 24px rgba(0, 0, 0, 0.26),
-    0 0 14px rgba(255, 123, 0, 0.15);
+    0 0 10px rgba(255, 123, 0, 0.08);
 }
 
 .portfolio-card img {
@@ -420,9 +417,9 @@ section:nth-of-type(even):not(.hero-section) {
   background: linear-gradient(90deg, var(--accent), var(--accent-soft));
   color: white;
   box-shadow:
-    0 0 10px rgba(255, 123, 0, 0.35),
-    0 0 20px rgba(255, 123, 0, 0.20);
-  animation: buttonGlow 2.8s ease-in-out infinite;
+    0 0 8px rgba(255, 123, 0, 0.22),
+    0 0 16px rgba(255, 123, 0, 0.12);
+  animation: buttonGlow 3s ease-in-out infinite;
   transition: all 0.3s ease;
   display: inline-block;
   font-weight: bold;
@@ -523,7 +520,7 @@ section:nth-of-type(even):not(.hero-section) {
   font-size: 15px;
 }
 
-/* SCROLL REVEAL */
+/* REVEAL */
 .reveal {
   opacity: 0;
   transform: translateY(26px);
@@ -535,7 +532,6 @@ section:nth-of-type(even):not(.hero-section) {
   transform: translateY(0);
 }
 
-/* FOOTER */
 footer {
   padding: 22px 15px;
   text-align: center;
@@ -545,7 +541,7 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* TABLET */
+/* RESPONSIVE */
 @media (max-width: 992px) {
   .hero-box {
     grid-template-columns: 1fr;
@@ -586,7 +582,6 @@ footer {
   }
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
   .hero-section {
     padding: 24px 14px;
@@ -664,60 +659,60 @@ footer {
 @keyframes glowPulseTitle {
   0%, 100% {
     text-shadow:
-      0 0 2px rgba(255, 255, 255, 0.55),
-      0 0 8px rgba(255, 255, 255, 0.18),
-      0 0 14px rgba(255, 159, 67, 0.12);
+      0 0 2px rgba(255, 255, 255, 0.45),
+      0 0 6px rgba(255, 255, 255, 0.12),
+      0 0 12px rgba(255, 159, 67, 0.10);
   }
   50% {
     text-shadow:
-      0 0 3px rgba(255, 255, 255, 0.70),
-      0 0 10px rgba(255, 255, 255, 0.24),
-      0 0 18px rgba(255, 159, 67, 0.18);
+      0 0 3px rgba(255, 255, 255, 0.58),
+      0 0 8px rgba(255, 255, 255, 0.18),
+      0 0 16px rgba(255, 159, 67, 0.14);
   }
 }
 
 @keyframes glowPulseSubtitle {
   0%, 100% {
     text-shadow:
-      0 0 4px rgba(255, 179, 71, 0.70),
-      0 0 10px rgba(255, 123, 0, 0.35);
+      0 0 3px rgba(255, 179, 71, 0.55),
+      0 0 8px rgba(255, 123, 0, 0.25);
   }
   50% {
     text-shadow:
-      0 0 6px rgba(255, 179, 71, 0.86),
-      0 0 14px rgba(255, 123, 0, 0.45);
+      0 0 5px rgba(255, 179, 71, 0.72),
+      0 0 12px rgba(255, 123, 0, 0.34);
   }
 }
 
 @keyframes logoFloatGlow {
   0%, 100% {
     transform: translateY(0);
-    filter: drop-shadow(0 0 16px rgba(255, 123, 0, 0.45));
+    filter: drop-shadow(0 0 14px rgba(255, 123, 0, 0.32));
   }
   50% {
     transform: translateY(-5px);
-    filter: drop-shadow(0 0 22px rgba(255, 123, 0, 0.58));
+    filter: drop-shadow(0 0 18px rgba(255, 123, 0, 0.44));
   }
 }
 
 @keyframes buttonGlow {
   0%, 100% {
     box-shadow:
-      0 0 10px rgba(255, 123, 0, 0.35),
-      0 0 20px rgba(255, 123, 0, 0.20);
+      0 0 8px rgba(255, 123, 0, 0.28),
+      0 0 16px rgba(255, 123, 0, 0.12);
   }
   50% {
     box-shadow:
-      0 0 14px rgba(255, 123, 0, 0.48),
-      0 0 24px rgba(255, 123, 0, 0.28);
+      0 0 12px rgba(255, 123, 0, 0.38),
+      0 0 22px rgba(255, 123, 0, 0.22);
   }
 }
 
 @keyframes slowZoom {
   from {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
   to {
-    transform: scale(1.12);
+    transform: scale(1.07);
   }
 }
