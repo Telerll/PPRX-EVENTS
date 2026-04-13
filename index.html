@@ -24,7 +24,6 @@
       --line-soft: rgba(255, 255, 255, 0.08);
       --line-card: rgba(255, 255, 255, 0.06);
       --shadow-dark: rgba(0, 0, 0, 0.35);
-      --shadow-glow: rgba(255, 123, 0, 0.24);
     }
 
     html {
@@ -315,7 +314,6 @@
       font-size: 15px;
     }
 
-    /* INFO BOX */
     .info-box {
       max-width: 920px;
       margin: auto;
@@ -440,7 +438,7 @@
       transform: translateY(-2px);
     }
 
-    /* FLOATING CONTACT */
+    /* FLOATING ACTIONS */
     .floating-actions {
       position: fixed;
       right: 16px;
@@ -997,13 +995,11 @@
     © 2026 PPRX Events Management Services | All rights reserved.
   </footer>
 
-  <!-- Floating Buttons -->
   <div class="floating-actions">
     <a href="#contact" class="floating-btn floating-book">Book</a>
     <a href="https://www.facebook.com/share/1AFpgwCBfH/" target="_blank" class="floating-btn floating-fb">FB</a>
   </div>
 
-  <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
     <div class="lightbox-content">
       <button class="lightbox-close" id="lightboxClose">&times;</button>
@@ -1013,7 +1009,6 @@
   </div>
 
   <script>
-    // Scroll reveal
     const revealItems = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1025,7 +1020,6 @@
 
     revealItems.forEach(item => observer.observe(item));
 
-    // Portfolio lightbox
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxCaption = document.getElementById('lightboxCaption');
@@ -1043,23 +1037,19 @@
       });
     });
 
-    lightboxClose.addEventListener('click', () => {
+    function closeLightbox() {
       lightbox.classList.remove('active');
       document.body.style.overflow = '';
-    });
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
 
     lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-      }
+      if (e.target === lightbox) closeLightbox();
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-      }
+      if (e.key === 'Escape') closeLightbox();
     });
   </script>
 
