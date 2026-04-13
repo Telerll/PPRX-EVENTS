@@ -71,11 +71,9 @@ section:nth-of-type(even):not(.hero-section) {
 /* HERO */
 .hero-section {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
+  min-height: auto;
+  display: block;
+  padding: 80px 20px 60px;
   overflow: hidden;
   background:
     radial-gradient(circle at top right, rgba(255, 123, 0, 0.10), transparent 30%),
@@ -100,13 +98,13 @@ section:nth-of-type(even):not(.hero-section) {
   z-index: 2;
   width: 100%;
   max-width: 960px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .hero-box {
   position: relative;
   width: 100%;
-  margin: auto;
+  margin: 0 auto;
   background:
     radial-gradient(circle at top left, rgba(255, 123, 0, 0.10), transparent 28%),
     radial-gradient(circle at bottom right, rgba(255, 179, 71, 0.07), transparent 24%),
@@ -745,7 +743,7 @@ footer {
 
 @media (max-width: 768px) {
   .hero-section {
-    padding: 24px 14px;
+    padding: 24px 14px 40px;
   }
 
   .hero-box {
