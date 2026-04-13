@@ -107,111 +107,84 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      max-width: 1250px;
-      display: grid;
-      grid-template-columns: 1.02fr 1fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 620px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 28px;
-      background:
-        radial-gradient(circle at top left, rgba(255, 123, 0, 0.10), transparent 28%),
-        radial-gradient(circle at bottom right, rgba(255, 179, 71, 0.07), transparent 24%),
-        linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.30);
-      overflow: hidden;
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-    }
-
-    .hero-visual::before {
-      content: "";
-      position: absolute;
-      inset: 22px;
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.06);
-      background:
-        linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    }
-
-    .hero-visual::after {
-      content: "";
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      background: url('logo1.png') center/contain no-repeat;
-      opacity: 0.08;
-      filter: grayscale(100%);
-    }
-
-    .hero-visual-inner {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 430px;
-      padding: 30px;
-      text-align: center;
-    }
-
-    .hero-visual-badge {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #f2f2f2;
-      font-size: 12px;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .hero-visual h3 {
-      font-size: 42px;
-      line-height: 1.05;
-      margin-bottom: 14px;
-      color: #ffffff;
-    }
-
-    .hero-visual p {
-      color: #d7d7d7;
-      font-size: 16px;
-      margin-bottom: 18px;
-    }
-
-    .hero-visual-lines {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .hero-visual-lines span {
-      width: 48px;
-      height: 4px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-soft));
-      opacity: 0.85;
+      max-width: 960px;
+      margin: auto;
     }
 
     .hero-box {
       position: relative;
       width: 100%;
-      background: rgba(10, 10, 18, 0.62);
+      background:
+        radial-gradient(circle at top left, rgba(255, 123, 0, 0.10), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(255, 179, 71, 0.07), transparent 24%),
+        rgba(10, 10, 18, 0.62);
       border: 1px solid rgba(255, 255, 255, 0.10);
       border-radius: 28px;
       padding: 42px;
       box-shadow: 0 10px 35px var(--shadow-dark);
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
+      overflow: hidden;
+    }
+
+    /* inner premium frame */
+    .hero-box .hero-frame {
+      position: absolute;
+      inset: 20px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.06);
+      pointer-events: none;
+    }
+
+    /* glass reflection hover */
+    .hero-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.16),
+        transparent
+      );
+      transform: skewX(-25deg);
+      transition: 0.8s;
+      pointer-events: none;
+    }
+
+    .hero-box:hover::before {
+      left: 140%;
+    }
+
+    /* animated border glow */
+    .hero-box::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 28px;
+      padding: 1px;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,123,0,0.8),
+        rgba(255,179,71,0.8),
+        transparent
+      );
+      background-size: 300% 300%;
+      animation: borderGlow 6s linear infinite;
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      pointer-events: none;
+    }
+
+    @keyframes borderGlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 300% 50%; }
     }
 
     .hero-top {
@@ -219,11 +192,13 @@
       align-items: center;
       gap: 18px;
       margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-logo {
-      width: 122px;
-      height: 122px;
+      width: 148px;
+      height: 148px;
       object-fit: contain;
       flex-shrink: 0;
       filter: drop-shadow(0 0 10px rgba(255, 123, 0, 0.20));
@@ -232,6 +207,8 @@
 
     .hero-brand {
       min-width: 0;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-label {
@@ -254,8 +231,11 @@
       color: #ffffff;
       letter-spacing: 1px;
       text-shadow:
-        0 0 2px rgba(255, 255, 255, 0.45),
-        0 0 6px rgba(255, 255, 255, 0.10);
+        0 0 5px rgba(255,255,255,0.80),
+        0 0 10px rgba(255,123,0,0.60),
+        0 0 20px rgba(255,123,0,0.40),
+        0 0 40px rgba(255,123,0,0.20);
+      animation: neonPulse 2.5s infinite alternate;
     }
 
     .hero-right h2 {
@@ -273,6 +253,8 @@
       font-size: 18px;
       margin-bottom: 26px;
       max-width: 640px;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-buttons {
@@ -280,6 +262,8 @@
       gap: 14px;
       flex-wrap: wrap;
       margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
     }
 
     .btn {
@@ -323,6 +307,8 @@
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-tags span {
@@ -704,18 +690,8 @@
 
     /* RESPONSIVE */
     @media (max-width: 1100px) {
-      .hero-wrap,
       .about-card {
         grid-template-columns: 1fr;
-      }
-
-      .hero-visual {
-        min-height: 380px;
-        order: 2;
-      }
-
-      .hero-box {
-        order: 1;
       }
 
       .about-visual {
@@ -779,19 +755,14 @@
         padding: 24px 14px;
       }
 
-      .hero-visual {
-        min-height: 280px;
-        border-radius: 22px;
-      }
-
       .hero-box {
         padding: 26px 16px;
         border-radius: 22px;
       }
 
       .hero-logo {
-        width: 92px;
-        height: 92px;
+        width: 108px;
+        height: 108px;
       }
 
       .hero-right h1 {
@@ -870,24 +841,31 @@
         filter: drop-shadow(0 0 14px rgba(255, 123, 0, 0.28));
       }
     }
+
+    @keyframes neonPulse {
+      from {
+        text-shadow:
+          0 0 4px rgba(255,255,255,0.6),
+          0 0 8px rgba(255,123,0,0.4),
+          0 0 16px rgba(255,123,0,0.2);
+      }
+      to {
+        text-shadow:
+          0 0 6px rgba(255,255,255,1),
+          0 0 14px rgba(255,123,0,0.8),
+          0 0 30px rgba(255,123,0,0.6),
+          0 0 60px rgba(255,123,0,0.4);
+      }
+    }
   </style>
 </head>
 <body>
 
   <header id="home" class="hero-section">
     <div class="hero-wrap reveal">
-      <div class="hero-visual">
-        <div class="hero-visual-inner">
-          <span class="hero-visual-badge">PPRX Premium Event Solutions</span>
-          <h3>Professional Events. Seamless Execution.</h3>
-          <p>Delivering polished event experiences with reliable management, production, and technical support.</p>
-          <div class="hero-visual-lines">
-            <span></span><span></span><span></span>
-          </div>
-        </div>
-      </div>
-
       <div class="hero-box">
+        <span class="hero-frame"></span>
+
         <div class="hero-top">
           <img src="logo1.png" alt="PPRX Events Management Services" class="hero-logo">
 
