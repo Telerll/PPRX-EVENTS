@@ -1,255 +1,1184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>PPRX Events Management Services</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PPRX Events Management Services</title>
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-:root{
---bg-main:#090910;
---bg-soft:#12121a;
---bg-card:#171721;
---text-main:#ffffff;
---text-muted:#cccccc;
---accent:#ff7b00;
---accent-soft:#ffb347;
-}
+    :root {
+      --bg-main: #090910;
+      --bg-soft: #12121a;
+      --bg-card: #171721;
+      --text-main: #ffffff;
+      --text-soft: #d7d7d7;
+      --text-muted: #cccccc;
+      --accent: #ff7b00;
+      --accent-soft: #ffb347;
+      --line-card: rgba(255, 255, 255, 0.06);
+      --shadow-dark: rgba(0, 0, 0, 0.35);
+    }
 
-body{
-font-family:Arial,sans-serif;
-background:linear-gradient(180deg,#000,#0f2027);
-color:#fff;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* HERO */
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:40px;
-text-align:center;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #000000, #0f2027);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-.hero h1{
-font-size:60px;
-}
+    a {
+      text-decoration: none;
+    }
 
-.hero h2{
-color:#ff9f43;
-margin-bottom:15px;
-}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-.btn{
-padding:12px 22px;
-border-radius:999px;
-font-weight:bold;
-display:inline-block;
-margin:5px;
-}
+    .container {
+      width: 100%;
+      max-width: 1150px;
+      margin: auto;
+    }
 
-.btn-primary{
-background:linear-gradient(90deg,var(--accent),var(--accent-soft));
-color:#fff;
-}
+    section {
+      position: relative;
+      padding: 82px 20px;
+    }
 
-.btn-secondary{
-border:1px solid #fff;
-color:#fff;
-}
+    section:nth-of-type(even):not(.hero-section) {
+      background: rgba(255, 255, 255, 0.01);
+    }
 
-/* ABOUT */
-.about{
-padding:80px 20px;
-}
+    .section-title {
+      text-align: center;
+      font-size: 38px;
+      margin-bottom: 14px;
+    }
 
-.about-wrap{
-display:grid;
-grid-template-columns:1fr 1fr;
-border-radius:20px;
-overflow:hidden;
-}
+    .section-subtitle {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 38px;
+      color: var(--text-muted);
+      font-size: 17px;
+    }
 
-.about-visual{
-background:
-linear-gradient(to right,rgba(0,0,0,0.7),rgba(0,0,0,0.2)),
-url('hex-bg.png') center/cover no-repeat;
-min-height:420px;
-}
+    /* HERO */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top right, rgba(255, 123, 0, 0.10), transparent 30%),
+        linear-gradient(180deg, #090910, #0f2027);
+    }
 
-.about-content{
-padding:50px;
-background:#1b1b22;
-}
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0.35)
+      );
+      pointer-events: none;
+    }
 
-.about-content h2{
-font-size:50px;
-margin-bottom:20px;
-}
+    .hero-wrap {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1250px;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
 
-.about-content p{
-color:#ddd;
-margin-bottom:15px;
-}
+    .hero-visual {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.30);
+      overflow: hidden;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
 
-/* SECTIONS */
-section{
-padding:70px 20px;
-}
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.02),
+        rgba(0,0,0,0.10)
+      );
+      pointer-events: none;
+    }
 
-.container{
-max-width:1100px;
-margin:auto;
-}
+    .hero-hex-image {
+      width: 96%;
+      max-width: 620px;
+      object-fit: contain;
+      animation: floatHex 7s ease-in-out infinite alternate;
+      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.30));
+    }
 
-.section-title{
-text-align:center;
-font-size:34px;
-margin-bottom:10px;
-}
+    .hero-box {
+      position: relative;
+      width: 100%;
+      background: rgba(10, 10, 18, 0.62);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      border-radius: 28px;
+      padding: 42px;
+      box-shadow: 0 10px 35px var(--shadow-dark);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
 
-.section-subtitle{
-text-align:center;
-color:#aaa;
-margin-bottom:30px;
-}
+    .hero-top {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
 
-/* CARDS */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
-}
+    .hero-logo {
+      width: 88px;
+      height: 88px;
+      object-fit: contain;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 10px rgba(255, 123, 0, 0.20));
+      animation: logoFloatGlow 4s ease-in-out infinite;
+    }
 
-.card{
-background:#1c1c25;
-padding:25px;
-border-radius:18px;
-text-align:center;
-transition:0.3s;
-}
+    .hero-brand {
+      min-width: 0;
+    }
 
-.card:hover{
-transform:translateY(-5px);
-}
+    .hero-label {
+      display: inline-block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #f0f0f0;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
 
-/* PORTFOLIO */
-.portfolio img{
-width:100%;
-height:200px;
-object-fit:cover;
-border-radius:12px;
-}
+    .hero-right h1 {
+      font-size: 58px;
+      line-height: 1.02;
+      margin-bottom: 6px;
+      color: #ffffff;
+      letter-spacing: 1px;
+      text-shadow:
+        0 0 2px rgba(255, 255, 255, 0.45),
+        0 0 6px rgba(255, 255, 255, 0.10);
+    }
 
-/* CONTACT */
-.contact{
-text-align:center;
-}
+    .hero-right h2 {
+      font-size: 30px;
+      color: #ff9f43;
+      margin-bottom: 18px;
+      font-weight: 700;
+      text-shadow:
+        0 0 3px rgba(255, 179, 71, 0.45),
+        0 0 8px rgba(255, 123, 0, 0.18);
+    }
 
-/* RESPONSIVE */
-@media(max-width:900px){
-.about-wrap{grid-template-columns:1fr;}
-.about-content{text-align:center;}
-}
-</style>
+    .hero-text {
+      color: #dddddd;
+      font-size: 18px;
+      margin-bottom: 26px;
+      max-width: 640px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      padding: 13px 24px;
+      border-radius: 999px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+      color: white;
+      box-shadow:
+        0 0 8px rgba(255, 123, 0, 0.25),
+        0 0 18px rgba(255, 123, 0, 0.14);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 0 12px rgba(255, 123, 0, 0.35),
+        0 0 22px rgba(255, 123, 0, 0.20);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: white;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.10);
+      border-color: rgba(255, 255, 255, 0.30);
+    }
+
+    .hero-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .hero-tags span {
+      padding: 8px 14px;
+      font-size: 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      color: #f2f2f2;
+      transition: all 0.3s ease;
+    }
+
+    .hero-tags span:hover {
+      background: rgba(255, 255, 255, 0.11);
+      transform: translateY(-2px);
+    }
+
+    /* ABOUT US SPLIT */
+    .about-split {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .about-visual,
+    .about-content {
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .about-visual {
+      background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+      padding: 20px;
+    }
+
+    .about-visual img {
+      width: 100%;
+      max-width: 560px;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,0.30));
+    }
+
+    .about-content {
+      background: linear-gradient(135deg, rgba(48,48,48,0.95), rgba(90,90,90,0.80));
+      padding: 48px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .about-content h2 {
+      font-size: 72px;
+      line-height: 0.95;
+      color: #ffffff;
+      margin-bottom: 34px;
+      letter-spacing: 2px;
+      font-weight: 800;
+    }
+
+    .about-content p {
+      color: #f2f2f2;
+      font-size: 21px;
+      line-height: 1.5;
+      margin-bottom: 34px;
+      font-weight: 400;
+    }
+
+    .about-content strong {
+      font-weight: 800;
+    }
+
+    /* GRIDS */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .dual-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .triple-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    /* CARDS */
+    .service-card,
+    .portfolio-card,
+    .info-box {
+      background: linear-gradient(180deg, var(--bg-card), var(--bg-soft));
+      border: 1px solid var(--line-card);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+    }
+
+    .service-card {
+      border-radius: 20px;
+      padding: 30px 24px;
+      text-align: center;
+      transition: all 0.35s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 179, 71, 0.22);
+      box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.26),
+        0 0 14px rgba(255, 123, 0, 0.12);
+    }
+
+    .service-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .service-card p {
+      color: #cfcfcf;
+      font-size: 15px;
+    }
+
+    .info-box {
+      max-width: 920px;
+      margin: auto;
+      border-radius: 22px;
+      padding: 34px 26px;
+      text-align: center;
+    }
+
+    .info-box p {
+      color: var(--text-soft);
+      margin-bottom: 14px;
+      font-size: 16px;
+    }
+
+    .cta-box {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .cta-box h3 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .cta-box p {
+      color: #ffb347;
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    /* PORTFOLIO */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .portfolio-card {
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.35s ease;
+      cursor: pointer;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 179, 71, 0.22);
+      box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.26),
+        0 0 14px rgba(255, 123, 0, 0.12);
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .portfolio-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .portfolio-content {
+      padding: 20px;
+      text-align: left;
+    }
+
+    .portfolio-content h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .portfolio-content p {
+      font-size: 14px;
+      color: #d0d0d0;
+    }
+
+    /* CONTACT */
+    .contact-lines p {
+      margin-bottom: 12px;
+    }
+
+    .contact-link {
+      color: #ffb347;
+      font-weight: 600;
+    }
+
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+
+    /* BACK HOME */
+    .back-home-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 40px 0 10px;
+    }
+
+    .back-home-btn {
+      min-width: 220px;
+      padding: 13px 24px;
+      border-radius: 999px;
+      text-align: center;
+      background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+      color: white;
+      box-shadow:
+        0 0 8px rgba(255, 123, 0, 0.28),
+        0 0 18px rgba(255, 123, 0, 0.16);
+      transition: all 0.3s ease;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    .back-home-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* FLOATING ACTIONS */
+    .floating-actions {
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+
+    .floating-btn {
+      min-width: 54px;
+      height: 54px;
+      padding: 0 16px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .floating-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+    }
+
+    .floating-book {
+      background: linear-gradient(90deg, #ff7b00, #ffb347);
+    }
+
+    .floating-fb {
+      background: linear-gradient(90deg, #1877f2, #4d98ff);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 1000;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .lightbox img {
+      width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -14px;
+      right: -4px;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 50%;
+      background: #ff7b00;
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    }
+
+    .lightbox-caption {
+      text-align: center;
+      margin-top: 14px;
+      color: #f0f0f0;
+      font-size: 15px;
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      padding: 22px 15px;
+      text-align: center;
+      background: #08080d;
+      color: #bfbfbf;
+      font-size: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .hero-wrap,
+      .about-split {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 420px;
+        order: 2;
+      }
+
+      .hero-box {
+        order: 1;
+      }
+
+      .about-visual {
+        min-height: 360px;
+      }
+
+      .about-content h2 {
+        font-size: 56px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .dual-grid,
+      .triple-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-box {
+        padding: 34px 22px;
+      }
+
+      .hero-top {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-right {
+        text-align: center;
+      }
+
+      .hero-right h1 {
+        font-size: 42px;
+      }
+
+      .hero-right h2 {
+        font-size: 26px;
+      }
+
+      .hero-text {
+        font-size: 16px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons,
+      .hero-tags {
+        justify-content: center;
+      }
+
+      .about-content {
+        padding: 40px 24px;
+      }
+
+      .about-content p {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 24px 14px;
+      }
+
+      .hero-visual {
+        min-height: 300px;
+        border-radius: 22px;
+      }
+
+      .hero-hex-image {
+        width: 94%;
+      }
+
+      .hero-box {
+        padding: 26px 16px;
+        border-radius: 22px;
+      }
+
+      .hero-logo {
+        width: 76px;
+        height: 76px;
+      }
+
+      .hero-right h1 {
+        font-size: 34px;
+      }
+
+      .hero-right h2 {
+        font-size: 22px;
+      }
+
+      .hero-text {
+        font-size: 14px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+
+      .section-subtitle {
+        font-size: 15px;
+      }
+
+      .portfolio-card img {
+        height: 200px;
+      }
+
+      .cta-box h3 {
+        font-size: 24px;
+      }
+
+      .cta-box p {
+        font-size: 16px;
+      }
+
+      .about-content h2 {
+        font-size: 40px;
+      }
+
+      .about-content p {
+        font-size: 16px;
+      }
+
+      .floating-actions {
+        right: 12px;
+        bottom: 14px;
+      }
+
+      .floating-btn {
+        height: 48px;
+        font-size: 13px;
+        padding: 0 14px;
+      }
+
+      .lightbox-close {
+        top: -10px;
+        right: 0;
+      }
+    }
+
+    @keyframes floatHex {
+      from {
+        transform: translateY(0px);
+      }
+      to {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes logoFloatGlow {
+      0%, 100% {
+        transform: translateY(0);
+        filter: drop-shadow(0 0 10px rgba(255, 123, 0, 0.20));
+      }
+      50% {
+        transform: translateY(-4px);
+        filter: drop-shadow(0 0 14px rgba(255, 123, 0, 0.28));
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<section class="hero">
-<div>
-<h1>PPRX</h1>
-<h2>EVENTS MANAGEMENT SERVICES</h2>
+  <header id="home" class="hero-section">
+    <div class="hero-wrap reveal">
+      <div class="hero-visual">
+        <img src="hex-bg.png" alt="PPRX Event Highlights" class="hero-hex-image">
+      </div>
 
-<p>We provide complete event solutions from planning to execution.</p>
+      <div class="hero-box">
+        <div class="hero-top">
+          <img src="logo1.png" alt="PPRX Events Management Services" class="hero-logo">
 
-<a href="#contact" class="btn btn-primary">Book Now</a>
-<a href="#services" class="btn btn-secondary">View Services</a>
-</div>
-</section>
+          <div class="hero-brand">
+            <p class="hero-label">Professional Event Consultation, Management and Services</p>
 
-<!-- ABOUT US (UPDATED) -->
-<section class="about">
-<div class="container about-wrap">
+            <div class="hero-right">
+              <h1>PPRX</h1>
+              <h2>EVENTS MANAGEMENT SERVICES</h2>
+            </div>
+          </div>
+        </div>
 
-<div class="about-visual"></div>
+        <p class="hero-text">
+          Don’t just plan an event—create an experience. We provide complete event solutions
+          from planning to execution, delivering professional, reliable, and high-quality
+          services for corporate events, social celebrations, concerts, exhibitions, and live productions.
+        </p>
 
-<div class="about-content">
-<h2>ABOUT US</h2>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">Book Now</a>
+          <a href="#services" class="btn btn-secondary">View Services</a>
+        </div>
 
-<p><strong>PPRX Events Management Services</strong> is dedicated to delivering high-quality, professional, and reliable event solutions.</p>
+        <div class="hero-tags">
+          <span>Corporate Events</span>
+          <span>Social Events</span>
+          <span>Concerts</span>
+          <span>Live Performances</span>
+          <span>Trade Shows</span>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<p>We specialize in creating unforgettable experiences—from corporate events to live productions—ensuring every detail is handled with precision.</p>
+  <section id="services" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">
+        We provide complete event solutions with professional equipment, technical expertise,
+        and dependable service for all types of occasions.
+      </p>
 
-<p>Our goal is simple: to turn your vision into reality and make every event extraordinary.</p>
+      <div class="services-grid">
+        <div class="service-card"><h3>LED Wall & Visual Display</h3><p>High-quality LED wall setup for events, live visuals, presentations, and concerts.</p></div>
+        <div class="service-card"><h3>Roofing & Trusses Setup</h3><p>Strong and reliable truss and roofing structures for indoor and outdoor events.</p></div>
+        <div class="service-card"><h3>Stage & Production</h3><p>Complete stage design, setup, and full production support for any event size.</p></div>
+        <div class="service-card"><h3>Band Equipment Rental</h3><p>Professional instruments and audio gear for live performances and bands.</p></div>
+        <div class="service-card"><h3>Installation Services</h3><p>Safe and efficient installation of event equipment and technical setups.</p></div>
+        <div class="service-card"><h3>Teleprompter Services</h3><p>Clear and smooth teleprompter setup for hosts, speakers, and presentations.</p></div>
+        <div class="service-card"><h3>Photo & Video Coverage</h3><p>Professional photography and videography to capture every important moment.</p></div>
+        <div class="service-card"><h3>Live Feed & Streaming</h3><p>Real-time video feed and live streaming for events, conferences, and programs.</p></div>
+        <div class="service-card"><h3>Animation & Photo/Video Editing</h3><p>Creative animations and high-quality editing for events, promotions, and branded visuals.</p></div>
+        <div class="service-card"><h3>Event Consultation</h3><p>Expert advice and planning support to ensure smooth and successful events.</p></div>
+        <div class="service-card"><h3>Event Management</h3><p>Full coordination and management from planning to execution.</p></div>
+        <div class="service-card"><h3>Full Event Services</h3><p>All-in-one event solutions tailored to your needs—complete, reliable, and professional.</p></div>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <section id="event-types" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Types of Events We Handle</h2>
+      <p class="section-subtitle">
+        We cater to a wide range of events, delivering professional setup and complete event solutions.
+      </p>
 
-</div>
-</section>
+      <div class="services-grid">
+        <div class="service-card"><h3>Corporate Events</h3><p>Conferences, product launches, company anniversaries, gala dinners, team-building activities, and award ceremonies.</p></div>
+        <div class="service-card"><h3>Social Events</h3><p>Weddings, birthdays, anniversaries, reunions, and private parties tailored to your style.</p></div>
+        <div class="service-card"><h3>Concerts & Live Performances</h3><p>From small-scale gigs to large-venue concerts, we provide the technical expertise to make every performance a success.</p></div>
+        <div class="service-card"><h3>Exhibitions & Trade Shows</h3><p>We offer comprehensive support for exhibitors, including booth design, lighting, and audio-visual requirements.</p></div>
+      </div>
+    </div>
+  </section>
 
-<!-- SERVICES -->
-<section id="services">
-<div class="container">
-<h2 class="section-title">Our Services</h2>
+  <section id="why-us" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Why Clients Choose Us</h2>
+      <p class="section-subtitle">
+        We don’t just provide services—we deliver professional results that make every event memorable.
+      </p>
 
-<div class="grid">
-<div class="card">LED Wall & Visual Display</div>
-<div class="card">Stage & Production</div>
-<div class="card">Photo & Video Coverage</div>
-<div class="card">Live Streaming</div>
-<div class="card">Event Management</div>
-<div class="card">Full Event Services</div>
-</div>
+      <div class="triple-grid">
+        <div class="service-card"><h3>Proven Experience</h3><p>Our team has a solid track record of delivering successful events across a wide range of industries.</p></div>
+        <div class="service-card"><h3>Reliability</h3><p>We are committed to transparency and clear communication, ensuring the process is smooth and stress-free from start to finish.</p></div>
+        <div class="service-card"><h3>Creative Solutions</h3><p>We’re always finding innovative ways to make your event stand out and leave a memorable impression.</p></div>
+      </div>
 
-</div>
-</section>
+      <div class="info-box cta-box">
+        <h3>Ready to create an event that leaves a lasting impression?</h3>
+        <p>Let’s turn your vision into a reality.</p>
+        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
 
-<!-- EVENTS -->
-<section>
-<div class="container">
-<h2 class="section-title">Types of Events</h2>
+  <section id="about" class="reveal">
+    <div class="container">
+      <div class="about-split">
+        <div class="about-visual">
+          <img src="hex-bg.png" alt="About PPRX Events Management Services">
+        </div>
 
-<div class="grid">
-<div class="card">Corporate Events</div>
-<div class="card">Social Events</div>
-<div class="card">Concerts</div>
-<div class="card">Exhibitions</div>
-</div>
+        <div class="about-content">
+          <h2>ABOUT US</h2>
 
-</div>
-</section>
+          <p>
+            <strong>PPRX Events Management Services</strong> was built on the belief that every event,
+            big or small, deserves to be a masterpiece.
+          </p>
 
-<!-- PORTFOLIO -->
-<section>
-<div class="container">
-<h2 class="section-title">Event Highlights</h2>
+          <p>
+            Our team is passionate about what we do, and we provide tailored solutions
+            designed to meet your specific needs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="grid portfolio">
-<img src="event1.jpg">
-<img src="event2.jpg">
-<img src="event3.jpg">
-<img src="event4.jpg">
-</div>
+  <section id="overview" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Business Overview</h2>
+      <p class="section-subtitle">
+        Don’t Just Plan an Event. Create an Experience.
+      </p>
 
-</div>
-</section>
+      <div class="info-box">
+        <p>
+          Planning an event can be stressful, but with the right team, it can also be an incredible journey.
+          At <strong>PPRX Events Management Services</strong>, we are experts at transforming ideas into unforgettable experiences.
+          We handle the details so you can enjoy the moment with confidence.
+        </p>
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
-<div class="container">
-<h2 class="section-title">Contact Us</h2>
+        <p>
+          Whether it’s an intimate gathering or a large corporate conference, our team provides seamless,
+          start-to-finish event solutions. We pride ourselves on being a trusted partner, combining creativity,
+          precision, and professionalism to ensure every event is a spectacular success.
+        </p>
+      </div>
+    </div>
+  </section>
 
-<p>📞 0939-8048420</p>
-<p>📧 pprxltd@gmail.com</p>
-<p>📍 Makati City</p>
+  <section id="mission-vision" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Mission & Vision</h2>
+      <p class="section-subtitle">
+        The purpose and direction that guide everything we do.
+      </p>
 
-</div>
-</section>
+      <div class="dual-grid">
+        <div class="service-card">
+          <h3>Our Mission</h3>
+          <p>
+            To provide innovative, reliable, and high-quality event management services,
+            leveraging cutting-edge technology and a passion for perfection to create
+            truly unforgettable moments for our clients and their guests.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Our Vision</h3>
+          <p>
+            To be the leading events management company in the region, recognized for our
+            creative solutions, professional excellence, and unwavering dedication to client satisfaction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="core-values" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Core Values</h2>
+      <p class="section-subtitle">
+        The principles that define how we work and how we serve our clients.
+      </p>
+
+      <div class="triple-grid">
+        <div class="service-card"><h3>Quality</h3><p>Giving the best quality result in every event we provide, with excellence in every detail.</p></div>
+        <div class="service-card"><h3>Passion</h3><p>We bring energy and enthusiasm to every project, creating meaningful and unforgettable experiences.</p></div>
+        <div class="service-card"><h3>Communication</h3><p>We maintain open, clear, and timely communication from planning to implementation.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="reveal">
+    <div class="container">
+      <h2 class="section-title">How We Work</h2>
+      <p class="section-subtitle">
+        Our approach ensures every event is carefully planned, professionally executed, and memorable from start to finish.
+      </p>
+
+      <div class="triple-grid">
+        <div class="service-card">
+          <h3>Customized Planning</h3>
+          <p>
+            We do not believe in one-size-fits-all. We work closely with you to understand your goals
+            and create a detailed plan that brings your unique vision to life.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>State-of-the-Art Production</h3>
+          <p>
+            We use the latest audio and visual technology to create stunning environments—
+            from professional lighting design and crystal-clear sound to dynamic LED walls.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Expert Coordination</h3>
+          <p>
+            Our experienced team manages every aspect of your event, including venue styling,
+            entertainment, and on-the-day coordination, so you can focus on your guests.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Event Highlights</h2>
+      <p class="section-subtitle">
+        Some of the events and occasions we have handled.
+      </p>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-card" data-img="event1.jpg" data-caption="Corporate Event - Professional setup for conferences, launches, and formal company gatherings.">
+          <img src="event1.jpg" alt="Corporate Event">
+          <div class="portfolio-content">
+            <h3>Corporate Event</h3>
+            <p>Professional setup for conferences, launches, and formal company gatherings.</p>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-img="event2.jpg" data-caption="Wedding Celebration - Elegant event support for memorable weddings and special family occasions.">
+          <img src="event2.jpg" alt="Wedding Celebration">
+          <div class="portfolio-content">
+            <h3>Wedding Celebration</h3>
+            <p>Elegant event support for memorable weddings and special family occasions.</p>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-img="event3.jpg" data-caption="Concert & Live Performance - Technical production and reliable equipment for live entertainment events.">
+          <img src="event3.jpg" alt="Concert and Live Performance">
+          <div class="portfolio-content">
+            <h3>Concert & Live Performance</h3>
+            <p>Technical production and reliable equipment for live entertainment events.</p>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-img="event4.jpg" data-caption="Exhibition & Trade Show - Complete support for booth setup, visuals, and audio-visual requirements.">
+          <img src="event4.jpg" alt="Exhibition and Trade Show">
+          <div class="portfolio-content">
+            <h3>Exhibition & Trade Show</h3>
+            <p>Complete support for booth setup, visuals, and audio-visual requirements.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-subtitle">
+        Reach out to us for bookings, inquiries, and complete event solutions.
+      </p>
+
+      <div class="info-box contact-lines">
+        <p><strong>Phone:</strong> <a class="contact-link" href="tel:09398048420">0939-8048420</a></p>
+        <p><strong>Email Address:</strong> <a class="contact-link" href="mailto:pprxltd@gmail.com">pprxltd@gmail.com</a></p>
+        <p><strong>Facebook:</strong> <a class="contact-link" href="https://www.facebook.com/share/1AFpgwCBfH/" target="_blank">Visit our Facebook Page</a></p>
+        <p><strong>Location:</strong> 8440 Trabajo St. Brgy Olympia, Makati City 1207</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="back-home-wrapper">
+    <a href="#home" class="back-home-btn">← Back to Home</a>
+  </div>
+
+  <footer>
+    © 2026 PPRX Events Management Services | All rights reserved.
+  </footer>
+
+  <div class="floating-actions">
+    <a href="#contact" class="floating-btn floating-book">Book</a>
+    <a href="https://www.facebook.com/share/1AFpgwCBfH/" target="_blank" class="floating-btn floating-fb">FB</a>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose">&times;</button>
+      <img id="lightboxImage" src="" alt="Expanded event image">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <script>
+    const revealItems = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealItems.forEach(item => observer.observe(item));
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+    portfolioCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const img = card.getAttribute('data-img');
+        const caption = card.getAttribute('data-caption');
+        lightboxImage.src = img;
+        lightboxCaption.textContent = caption;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+  </script>
 
 </body>
 </html>
