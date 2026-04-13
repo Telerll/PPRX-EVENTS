@@ -85,8 +85,8 @@ section:nth-of-type(even):not(.hero-section) {
   position: absolute;
   inset: 0;
   background: url('hex-bg.png') center/cover no-repeat;
-  opacity: 0.22;
-  filter: blur(4px);
+  opacity: 0.26;
+  filter: blur(2px);
   transform: scale(1.03);
   z-index: 0;
   animation: slowZoom 20s ease-in-out infinite alternate;
