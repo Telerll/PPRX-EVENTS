@@ -41,20 +41,20 @@
       padding: 40px 20px;
       overflow: hidden;
       background:
-        linear-gradient(rgba(7, 7, 12, 0.55), rgba(7, 7, 12, 0.82)),
-        url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.88)),
+        url('bg-events.jpg') center/cover no-repeat;
     }
 
     .hero-section::before {
       content: "";
       position: absolute;
       inset: 0;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(3px);
       background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0.18),
-        rgba(0, 0, 0, 0.35),
-        rgba(0, 0, 0, 0.62)
+        rgba(0, 0, 0, 0.12),
+        rgba(0, 0, 0, 0.28),
+        rgba(0, 0, 0, 0.48)
       );
     }
 
@@ -68,7 +68,7 @@
       gap: 40px;
       align-items: center;
       background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.10);
       border-radius: 28px;
       padding: 42px;
       box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
@@ -83,7 +83,7 @@
 
     .hero-logo {
       width: 100%;
-      max-width: 360px;
+      max-width: 340px;
       height: auto;
       object-fit: contain;
     }
@@ -99,21 +99,21 @@
       letter-spacing: 1.5px;
       padding: 8px 16px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.10);
       color: #f0f0f0;
       margin-bottom: 18px;
     }
 
     .hero-right h1 {
-      font-size: 56px;
-      line-height: 1.1;
+      font-size: 58px;
+      line-height: 1.05;
       margin-bottom: 8px;
       color: #ffffff;
     }
 
     .hero-right h2 {
       font-size: 30px;
-      color: #ff9f43;
+      color: #ffae57;
       margin-bottom: 16px;
       font-weight: 700;
     }
@@ -144,6 +144,7 @@
     .btn-primary {
       background: linear-gradient(90deg, #ff7b00, #ffb347);
       color: white;
+      box-shadow: 0 8px 18px rgba(255, 123, 0, 0.20);
     }
 
     .btn-primary:hover {
@@ -153,7 +154,7 @@
     .btn-secondary {
       border: 1px solid rgba(255, 255, 255, 0.28);
       color: white;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .btn-secondary:hover {
@@ -193,7 +194,7 @@
 
     .section-subtitle {
       text-align: center;
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto 38px;
       color: #cccccc;
       font-size: 17px;
@@ -228,6 +229,18 @@
     .service-card p {
       color: #cfcfcf;
       font-size: 15px;
+    }
+
+    .dual-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .triple-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
     }
 
     .portfolio-grid {
@@ -273,7 +286,7 @@
     }
 
     .info-box {
-      max-width: 900px;
+      max-width: 920px;
       margin: auto;
       background: linear-gradient(180deg, #171721, #12121a);
       border: 1px solid rgba(255, 255, 255, 0.06);
@@ -285,12 +298,8 @@
 
     .info-box p {
       color: #d7d7d7;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       font-size: 16px;
-    }
-
-    .contact-lines p {
-      margin-bottom: 12px;
     }
 
     .cta-box {
@@ -310,6 +319,10 @@
       margin-bottom: 24px;
     }
 
+    .contact-lines p {
+      margin-bottom: 12px;
+    }
+
     .back-home-wrapper {
       width: 100%;
       display: flex;
@@ -319,7 +332,6 @@
     }
 
     .back-home-btn {
-      width: auto !important;
       min-width: 220px;
       padding: 13px 24px;
       border-radius: 999px;
@@ -352,7 +364,7 @@
       }
 
       .hero-logo {
-        max-width: 300px;
+        max-width: 280px;
       }
 
       .hero-right h1 {
@@ -373,6 +385,11 @@
       .hero-tags {
         justify-content: center;
       }
+
+      .dual-grid,
+      .triple-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 768px) {
@@ -387,7 +404,7 @@
       }
 
       .hero-logo {
-        max-width: 240px;
+        max-width: 230px;
       }
 
       .hero-right h1 {
@@ -408,7 +425,6 @@
 
       .hero-buttons .btn {
         width: 100%;
-        text-align: center;
       }
 
       .section-title {
@@ -421,11 +437,6 @@
 
       .portfolio-card img {
         height: 200px;
-      }
-
-      .back-home-btn {
-        width: auto !important;
-        min-width: 220px;
       }
 
       .cta-box h3 {
@@ -453,9 +464,9 @@
         <h2>EVENTS MANAGEMENT SERVICES</h2>
 
         <p class="hero-text">
-          We provide complete event solutions—from setup to execution—delivering
-          professional, reliable, and high-quality services for corporate events,
-          social celebrations, concerts, exhibitions, and live productions.
+          Don’t just plan an event—create an experience. We provide complete event solutions
+          from planning to execution, delivering professional, reliable, and high-quality
+          services for corporate events, social celebrations, concerts, exhibitions, and live productions.
         </p>
 
         <div class="hero-buttons">
@@ -524,8 +535,8 @@
         </div>
 
         <div class="service-card">
-          <h3>Animation & Video Editing</h3>
-          <p>Creative animations and high-quality photo and video editing for events and promotions.</p>
+          <h3>Animation & Photo/Video Editing</h3>
+          <p>Creative animations and high-quality editing for events, promotions, and branded visuals.</p>
         </div>
 
         <div class="service-card">
@@ -584,7 +595,7 @@
         We don’t just provide services—we deliver professional results that make every event memorable.
       </p>
 
-      <div class="services-grid">
+      <div class="triple-grid">
         <div class="service-card">
           <h3>Proven Experience</h3>
           <p>Our team has a solid track record of delivering successful events across a wide range of industries.</p>
@@ -605,6 +616,118 @@
         <h3>Ready to create an event that leaves a lasting impression?</h3>
         <p>Let’s turn your vision into a reality.</p>
         <a href="#contact" class="btn btn-primary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="overview">
+    <div class="container">
+      <h2 class="section-title">Business Overview</h2>
+      <p class="section-subtitle">
+        Don’t Just Plan an Event. Create an Experience.
+      </p>
+
+      <div class="info-box">
+        <p>
+          Planning an event can be stressful, but with the right team, it can also be an incredible journey.
+          At <strong>PPRX Events Management Services</strong>, we are experts at transforming ideas into unforgettable experiences.
+          We handle the details so you can enjoy the moment with confidence.
+        </p>
+
+        <p>
+          Whether it’s an intimate gathering or a large corporate conference, our team provides seamless,
+          start-to-finish event solutions. We pride ourselves on being a trusted partner, combining creativity,
+          precision, and professionalism to ensure every event is a spectacular success.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="mission-vision">
+    <div class="container">
+      <h2 class="section-title">Mission & Vision</h2>
+      <p class="section-subtitle">
+        The purpose and direction that guide everything we do.
+      </p>
+
+      <div class="dual-grid">
+        <div class="service-card">
+          <h3>Our Mission</h3>
+          <p>
+            To provide innovative, reliable, and high-quality event management services,
+            leveraging cutting-edge technology and a passion for perfection to create
+            truly unforgettable moments for our clients and their guests.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Our Vision</h3>
+          <p>
+            To be the leading events management company in the region, recognized for our
+            creative solutions, professional excellence, and unwavering dedication to client satisfaction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="core-values">
+    <div class="container">
+      <h2 class="section-title">Core Values</h2>
+      <p class="section-subtitle">
+        The principles that define how we work and how we serve our clients.
+      </p>
+
+      <div class="triple-grid">
+        <div class="service-card">
+          <h3>Quality</h3>
+          <p>Giving the best quality result in every event we provide, with excellence in every detail.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Passion</h3>
+          <p>We bring energy and enthusiasm to every project, creating meaningful and unforgettable experiences.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Communication</h3>
+          <p>We maintain open, clear, and timely communication from planning to implementation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="container">
+      <h2 class="section-title">How We Work</h2>
+      <p class="section-subtitle">
+        Our approach ensures every event is carefully planned, professionally executed, and memorable from start to finish.
+      </p>
+
+      <div class="triple-grid">
+        <div class="service-card">
+          <h3>Customized Planning</h3>
+          <p>
+            We do not believe in one-size-fits-all. We work closely with you to understand your goals
+            and create a detailed plan that brings your unique vision to life.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>State-of-the-Art Production</h3>
+          <p>
+            We use the latest audio and visual technology to create stunning environments—
+            from professional lighting design and crystal-clear sound to dynamic LED walls.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Expert Coordination</h3>
+          <p>
+            Our experienced team manages every aspect of your event, including venue styling,
+            entertainment, and on-the-day coordination, so you can focus on your guests.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -652,28 +775,6 @@
     </div>
   </section>
 
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">About Us</h2>
-      <p class="section-subtitle">
-        Complete event solutions you can trust for small and large-scale occasions.
-      </p>
-
-      <div class="info-box">
-        <p>
-          PPRX Events Management Services specializes in event consultation, management,
-          and technical support for a wide variety of occasions. From corporate events
-          and social celebrations to concerts, exhibitions, and live productions,
-          we are committed to delivering reliable, high-quality service every time.
-        </p>
-        <p>
-          Our goal is to make every event organized, impactful, and memorable through
-          professional setup, creative execution, and dependable coordination from start to finish.
-        </p>
-      </div>
-    </div>
-  </section>
-
   <section id="contact">
     <div class="container">
       <h2 class="section-title">Contact Us</h2>
@@ -685,7 +786,7 @@
         <p><strong>Phone:</strong> 0939-8048420</p>
         <p><strong>Email Address:</strong> <a href="mailto:pprxltd@gmail.com" style="color:#ffb347;">pprxltd@gmail.com</a></p>
         <p><strong>Facebook:</strong> <a href="https://www.facebook.com/share/1AFpgwCBfH/" target="_blank" style="color:#ffb347;">Visit our Facebook Page</a></p>
-        <p><strong>Location:</strong> 8440 Trabajo St. Brgy Olympia Makati City 1207</p>
+        <p><strong>Location:</strong> 8440 Trabajo St. Brgy Olympia, Makati City 1207</p>
       </div>
     </div>
   </section>
