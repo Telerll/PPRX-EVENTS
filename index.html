@@ -114,6 +114,10 @@
     .hero-box {
       position: relative;
       width: 100%;
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      align-items: center;
+      gap: 28px;
       background:
         radial-gradient(circle at top left, rgba(255, 123, 0, 0.10), transparent 28%),
         radial-gradient(circle at bottom right, rgba(255, 179, 71, 0.07), transparent 24%),
@@ -127,7 +131,6 @@
       overflow: hidden;
     }
 
-    /* inner premium frame */
     .hero-box .hero-frame {
       position: absolute;
       inset: 20px;
@@ -136,7 +139,6 @@
       pointer-events: none;
     }
 
-    /* glass reflection hover */
     .hero-box::before {
       content: "";
       position: absolute;
@@ -159,7 +161,6 @@
       left: 140%;
     }
 
-    /* animated border glow */
     .hero-box::after {
       content: "";
       position: absolute;
@@ -187,11 +188,10 @@
       100% { background-position: 300% 50%; }
     }
 
-    .hero-top {
+    .hero-left {
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 18px;
-      margin-bottom: 20px;
       position: relative;
       z-index: 2;
     }
@@ -205,7 +205,7 @@
       animation: logoFloatGlow 4s ease-in-out infinite;
     }
 
-    .hero-brand {
+    .hero-right {
       min-width: 0;
       position: relative;
       z-index: 2;
@@ -253,8 +253,6 @@
       font-size: 18px;
       margin-bottom: 26px;
       max-width: 640px;
-      position: relative;
-      z-index: 2;
     }
 
     .hero-buttons {
@@ -262,8 +260,6 @@
       gap: 14px;
       flex-wrap: wrap;
       margin-bottom: 24px;
-      position: relative;
-      z-index: 2;
     }
 
     .btn {
@@ -307,8 +303,6 @@
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-      position: relative;
-      z-index: 2;
     }
 
     .hero-tags span {
@@ -710,14 +704,15 @@
       }
 
       .hero-box {
+        grid-template-columns: 1fr;
         padding: 34px 22px;
       }
 
-      .hero-top {
-        flex-direction: column;
-        text-align: center;
+      .hero-left {
+        margin-bottom: 4px;
       }
 
+      .hero-left,
       .hero-right {
         text-align: center;
       }
@@ -861,46 +856,45 @@
 </head>
 <body>
 
-        
   <header id="home" class="hero-section">
-  <div class="hero-wrap reveal">
-    <div class="hero-box">
-      <span class="hero-frame"></span>
+    <div class="hero-wrap reveal">
+      <div class="hero-box">
+        <span class="hero-frame"></span>
 
-      <div class="hero-left">
-        <img src="logo1.png" alt="PPRX Events Management Services" class="hero-logo">
-      </div>
-
-      <div class="hero-right">
-        <p class="hero-label">PROFESSIONAL EVENT CONSULTATION, MANAGEMENT AND SERVICES</p>
-
-        <h1>PPRX</h1>
-        <h2>EVENTS MANAGEMENT SERVICES</h2>
-
-        <p class="hero-text">
-          Don’t just plan an event—create an experience. We provide complete event solutions
-          from planning to execution, delivering professional, reliable, and high-quality
-          services for corporate events, social celebrations, concerts, exhibitions, and live productions.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="#contact" class="btn btn-primary">Book Now</a>
-          <a href="#services" class="btn btn-secondary">View Services</a>
+        <div class="hero-left">
+          <img src="logo1.png" alt="PPRX Events Management Services" class="hero-logo">
         </div>
 
-        <div class="hero-tags">
-          <span>Corporate Events</span>
-          <span>Social Events</span>
-          <span>Concerts</span>
-          <span>Live Performances</span>
-          <span>Trade Shows</span>
+        <div class="hero-right">
+          <p class="hero-label">PROFESSIONAL EVENT CONSULTATION, MANAGEMENT AND SERVICES</p>
+
+          <h1>PPRX</h1>
+          <h2>EVENTS MANAGEMENT SERVICES</h2>
+
+          <p class="hero-text">
+            Don’t just plan an event—create an experience. We provide complete event solutions
+            from planning to execution, delivering professional, reliable, and high-quality
+            services for corporate events, social celebrations, concerts, exhibitions, and live productions.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Book Now</a>
+            <a href="#services" class="btn btn-secondary">View Services</a>
+          </div>
+
+          <div class="hero-tags">
+            <span>Corporate Events</span>
+            <span>Social Events</span>
+            <span>Concerts</span>
+            <span>Live Performances</span>
+            <span>Trade Shows</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
-    <section id="services" class="reveal">
+  <section id="services" class="reveal">
     <div class="container">
       <h2 class="section-title">Our Services</h2>
       <p class="section-subtitle">
