@@ -71,9 +71,11 @@ section:nth-of-type(even):not(.hero-section) {
 /* HERO */
 .hero-section {
   position: relative;
-  min-height: auto;
-  display: block;
-  padding: 80px 20px 60px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
   overflow: hidden;
   background:
     radial-gradient(circle at top right, rgba(255, 123, 0, 0.10), transparent 30%),
@@ -97,7 +99,7 @@ section:nth-of-type(even):not(.hero-section) {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -106,19 +108,19 @@ section:nth-of-type(even):not(.hero-section) {
   width: 100%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 170px 1fr;
+  grid-template-columns: 420px 1fr;
   align-items: center;
-  gap: 28px;
+  gap: 40px;
   background:
     radial-gradient(circle at top left, rgba(255, 123, 0, 0.10), transparent 28%),
     radial-gradient(circle at bottom right, rgba(255, 179, 71, 0.07), transparent 24%),
-    rgba(10, 10, 18, 0.62);
-  border: 1px solid rgba(255, 255, 255, 0.10);
+    rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 28px;
   padding: 42px;
   box-shadow: 0 10px 35px var(--shadow-dark);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   overflow: hidden;
 }
 
@@ -182,7 +184,6 @@ section:nth-of-type(even):not(.hero-section) {
   100% { background-position: 300% 50%; }
 }
 
-/* corrected hero layout */
 .hero-left {
   display: flex;
   align-items: center;
@@ -193,11 +194,12 @@ section:nth-of-type(even):not(.hero-section) {
 
 .hero-right {
   min-width: 0;
+  text-align: left;
   position: relative;
   z-index: 2;
 }
 
-/* old classes retained safely if ever reused */
+/* kept safely if reused elsewhere */
 .hero-top {
   display: flex;
   align-items: center;
@@ -214,8 +216,9 @@ section:nth-of-type(even):not(.hero-section) {
 }
 
 .hero-logo {
-  width: 148px;
-  height: 148px;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
   object-fit: contain;
   flex-shrink: 0;
   filter: drop-shadow(0 0 10px rgba(255, 123, 0, 0.20));
@@ -224,21 +227,21 @@ section:nth-of-type(even):not(.hero-section) {
 
 .hero-label {
   display: inline-block;
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   color: #f0f0f0;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .hero-right h1 {
-  font-size: 58px;
-  line-height: 1.02;
-  margin-bottom: 6px;
+  font-size: 56px;
+  line-height: 1.1;
+  margin-bottom: 8px;
   color: #ffffff;
   letter-spacing: 1px;
   text-shadow:
@@ -252,7 +255,7 @@ section:nth-of-type(even):not(.hero-section) {
 .hero-right h2 {
   font-size: 30px;
   color: #ff9f43;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   font-weight: 700;
   text-shadow:
     0 0 3px rgba(255, 179, 71, 0.45),
@@ -263,7 +266,7 @@ section:nth-of-type(even):not(.hero-section) {
   color: #dddddd;
   font-size: 18px;
   margin-bottom: 26px;
-  max-width: 640px;
+  max-width: 680px;
   position: relative;
   z-index: 2;
 }
@@ -722,7 +725,9 @@ footer {
 
   .hero-box {
     grid-template-columns: 1fr;
+    text-align: center;
     padding: 34px 22px;
+    gap: 28px;
   }
 
   .hero-left,
@@ -730,8 +735,8 @@ footer {
     text-align: center;
   }
 
-  .hero-left {
-    margin-bottom: 4px;
+  .hero-logo {
+    max-width: 260px;
   }
 
   .hero-right h1 {
@@ -764,18 +769,19 @@ footer {
 
 @media (max-width: 768px) {
   .hero-section {
-    padding: 24px 14px 40px;
+    padding: 24px 14px;
   }
 
   .hero-box {
     padding: 26px 16px;
     border-radius: 22px;
-    gap: 18px;
+    gap: 24px;
   }
 
   .hero-logo {
-    width: 108px;
-    height: 108px;
+    max-width: 200px;
+    width: 100%;
+    height: auto;
   }
 
   .hero-right h1 {
