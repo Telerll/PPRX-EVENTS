@@ -191,8 +191,8 @@ body{
 }
 
 .top-brand-banner{
-  width:330px;
-  height:100px;
+  width:220px;
+  height:80px;
 
   background:rgba(255,255,255,.72);
 
@@ -644,8 +644,8 @@ th{
   }
 
   .top-brand-banner{
-    width:100%;
-    max-width:300px;
+    width:80%;
+    max-width:180px;
     height:88px;
   }
 
@@ -682,7 +682,7 @@ th{
 }
 
 .top-brand-banner{
-  width:230px;
+  width:200px;
   height:80px;
 
   background:rgba(255,255,255,.78);
@@ -708,7 +708,7 @@ th{
 }
 
 .top-brand-banner img{
-  width:100%;
+  width:80%;
   height:100%;
   object-fit:contain;
   display:block;
@@ -741,7 +741,7 @@ th{
   }
 
   .top-brand-banner{
-    width:100%;
+    width:80%;
     max-width:260px;
     height:85px;
   }
