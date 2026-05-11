@@ -217,8 +217,8 @@ body{
 }
 
 .top-brand-banner img{
-  width:100%;
-  height:100%;
+  width:110px;
+  height:auto;
   object-fit:contain;
   display:block;
 }
@@ -746,4 +746,13 @@ th{
     height:85px;
   }
 
+}
+.top-brand-banner{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(18px);
+  border-radius:24px;
+  padding:10px 16px;
 }
