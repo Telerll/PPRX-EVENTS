@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -26,14 +26,12 @@ body{
   color:#0f172a;
 }
 
-/* APP LAYOUT */
 .app{
   display:grid;
   grid-template-columns:300px 1fr;
   min-height:100vh;
 }
 
-/* SIDEBAR */
 .sidebar{
   background:rgba(255,255,255,.72);
   backdrop-filter:blur(18px);
@@ -116,7 +114,6 @@ body{
   color:#64748b;
 }
 
-/* MAIN */
 .main{
   padding:32px;
 }
@@ -170,7 +167,6 @@ body{
   color:#0f4c81;
 }
 
-/* SECTIONS */
 .section{
   display:none;
 }
@@ -179,7 +175,6 @@ body{
   display:block;
 }
 
-/* HERO */
 .hero{
   background:
     radial-gradient(circle at right,rgba(29,155,240,.20),transparent 32%),
@@ -242,7 +237,6 @@ body{
   margin-top:6px;
 }
 
-/* STATS */
 .stats{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
@@ -280,24 +274,31 @@ body{
   color:#071d2b;
 }
 
-/* DASHBOARD GRID */
 .dashboard-grid{
   display:grid;
   grid-template-columns:1.2fr .8fr;
   gap:20px;
 }
 
-.panel{
-  background:rgba(255,255,255,.82);
+.panel,
+.form-card{
+  background:rgba(255,255,255,.86);
   border-radius:28px;
-  padding:24px;
-  box-shadow:0 14px 30px rgba(15,76,129,.08);
+  padding:26px;
+  box-shadow:0 14px 32px rgba(15,76,129,.09);
 }
 
-.panel h3{
-  font-size:24px;
+.panel h3,
+.form-card h3{
   color:#071d2b;
-  margin-bottom:14px;
+  font-size:26px;
+  margin-bottom:8px;
+}
+
+.panel p,
+.form-card p{
+  color:#64748b;
+  margin-bottom:20px;
 }
 
 .quick-list{
@@ -321,25 +322,6 @@ body{
 
 .quick-item strong{
   color:#082f49;
-}
-
-/* FORM */
-.form-card{
-  background:rgba(255,255,255,.86);
-  border-radius:28px;
-  padding:26px;
-  box-shadow:0 14px 32px rgba(15,76,129,.09);
-}
-
-.form-card h3{
-  color:#071d2b;
-  font-size:26px;
-  margin-bottom:8px;
-}
-
-.form-card p{
-  color:#64748b;
-  margin-bottom:20px;
 }
 
 .form-grid{
@@ -378,7 +360,6 @@ input:focus,textarea:focus,select:focus{
   margin-top:18px;
 }
 
-/* TABLE */
 .table-wrap{
   overflow-x:auto;
 }
@@ -411,6 +392,7 @@ th{
 .blue{background:#dbeafe;color:#1d4ed8}
 .green{background:#dcfce7;color:#166534}
 .orange{background:#fef3c7;color:#92400e}
+.red{background:#fee2e2;color:#991b1b}
 
 @media(max-width:900px){
   .app{
@@ -489,7 +471,6 @@ th{
       </div>
     </div>
 
-    <!-- DASHBOARD -->
     <section id="dashboard" class="section active">
       <div class="hero">
         <div>
@@ -563,7 +544,6 @@ th{
       </div>
     </section>
 
-    <!-- OWNER SETUP -->
     <section id="ownerSetup" class="section">
       <div class="form-card">
         <h3>Owner Setup</h3>
@@ -625,7 +605,6 @@ th{
       </div>
     </section>
 
-    <!-- JOB ORDERS -->
     <section id="jobOrders" class="section">
       <div class="form-card">
         <h3>Job Orders</h3>
@@ -678,14 +657,116 @@ th{
       </div>
     </section>
 
-    <!-- PLACEHOLDER SECTIONS -->
-    <section id="customers" class="section"><div class="panel"><h3>Customers</h3><p>Customer records module next.</p></div></section>
-    <section id="services" class="section"><div class="panel"><h3>Services & Pricing</h3><p>Service price list module next.</p></div></section>
-    <section id="queue" class="section"><div class="panel"><h3>Laundry Queue</h3><p>Status board module next.</p></div></section>
-    <section id="payments" class="section"><div class="panel"><h3>Payments</h3><p>Payment tracking module next.</p></div></section>
-    <section id="expenses" class="section"><div class="panel"><h3>Expenses</h3><p>Expense tracking module next.</p></div></section>
-    <section id="reports" class="section"><div class="panel"><h3>Reports</h3><p>Reports module next.</p></div></section>
-    <section id="settings" class="section"><div class="panel"><h3>Settings</h3><p>App settings module next.</p></div></section>
+    <section id="customers" class="section">
+      <div class="form-card">
+        <h3>Customers</h3>
+        <p>Manage customer records.</p>
+
+        <div class="form-grid">
+          <input id="customerName" placeholder="Customer Name">
+          <input id="customerContact" placeholder="Contact Number">
+          <input id="customerAddress" placeholder="Address">
+        </div>
+
+        <button class="btn primary" onclick="addCustomer()">Add Customer</button>
+
+        <div class="table-wrap" style="margin-top:20px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Contact Number</th>
+                <th>Address</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="customersTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="form-card">
+        <h3>Services & Pricing</h3>
+        <p>Setup laundry services and rates.</p>
+
+        <div class="form-grid">
+          <input id="serviceName" placeholder="Service Name">
+          <input id="servicePrice" type="number" placeholder="Price">
+          <select id="serviceUnit">
+            <option>Per Kilo</option>
+            <option>Per Piece</option>
+            <option>Fixed Rate</option>
+          </select>
+        </div>
+
+        <button class="btn primary" onclick="addService()">Add Service</button>
+
+        <div class="table-wrap" style="margin-top:20px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Price</th>
+                <th>Unit</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="servicesTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="queue" class="section">
+      <div class="panel">
+        <h3>Laundry Queue</h3>
+        <p>Monitor active laundry status.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>JO No.</th>
+                <th>Customer</th>
+                <th>Status</th>
+                <th>Payment</th>
+              </tr>
+            </thead>
+            <tbody id="queueTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="payments" class="section">
+      <div class="panel">
+        <h3>Payments</h3>
+        <p>Payment tracking module next.</p>
+      </div>
+    </section>
+
+    <section id="expenses" class="section">
+      <div class="panel">
+        <h3>Expenses</h3>
+        <p>Expense tracking module next.</p>
+      </div>
+    </section>
+
+    <section id="reports" class="section">
+      <div class="panel">
+        <h3>Reports</h3>
+        <p>Reports module next.</p>
+      </div>
+    </section>
+
+    <section id="settings" class="section">
+      <div class="panel">
+        <h3>Settings</h3>
+        <p>App settings module next.</p>
+      </div>
+    </section>
 
   </main>
 </div>
@@ -704,10 +785,14 @@ let ownerSetup = JSON.parse(localStorage.getItem("lav_owner_setup")) || {
 };
 
 let jobOrders = JSON.parse(localStorage.getItem("lav_job_orders")) || [];
+let customers = JSON.parse(localStorage.getItem("lav_customers")) || [];
+let services = JSON.parse(localStorage.getItem("lav_services")) || [];
 
 function saveData(){
   localStorage.setItem("lav_owner_setup", JSON.stringify(ownerSetup));
   localStorage.setItem("lav_job_orders", JSON.stringify(jobOrders));
+  localStorage.setItem("lav_customers", JSON.stringify(customers));
+  localStorage.setItem("lav_services", JSON.stringify(services));
 }
 
 function showSection(id,btn){
@@ -810,6 +895,61 @@ function addJobOrder(){
   renderAll();
 }
 
+function addCustomer(){
+  if(!customerName.value){
+    alert("Enter customer name.");
+    return;
+  }
+
+  customers.push({
+    name:customerName.value,
+    contact:customerContact.value,
+    address:customerAddress.value
+  });
+
+  customerName.value = "";
+  customerContact.value = "";
+  customerAddress.value = "";
+
+  saveData();
+  renderAll();
+}
+
+function deleteCustomer(i){
+  if(confirm("Delete customer?")){
+    customers.splice(i,1);
+    saveData();
+    renderAll();
+  }
+}
+
+function addService(){
+  if(!serviceName.value || !servicePrice.value){
+    alert("Enter service name and price.");
+    return;
+  }
+
+  services.push({
+    name:serviceName.value,
+    price:servicePrice.value,
+    unit:serviceUnit.value
+  });
+
+  serviceName.value = "";
+  servicePrice.value = "";
+
+  saveData();
+  renderAll();
+}
+
+function deleteService(i){
+  if(confirm("Delete service?")){
+    services.splice(i,1);
+    saveData();
+    renderAll();
+  }
+}
+
 function renderOrders(){
   ordersTable.innerHTML = jobOrders.map(o=>`
     <tr>
@@ -819,6 +959,43 @@ function renderOrders(){
       <td>${money(o.total)}</td>
       <td><span class="badge ${o.payment === 'Paid' ? 'green' : o.payment === 'Partial' ? 'orange' : 'blue'}">${o.payment}</span></td>
       <td><span class="badge ${o.status === 'Ready for Pickup' ? 'green' : 'blue'}">${o.status}</span></td>
+    </tr>
+  `).join("");
+}
+
+function renderCustomers(){
+  customersTable.innerHTML = customers.map((c,i)=>`
+    <tr>
+      <td>${c.name}</td>
+      <td>${c.contact}</td>
+      <td>${c.address}</td>
+      <td>
+        <button class="btn light" onclick="deleteCustomer(${i})">Delete</button>
+      </td>
+    </tr>
+  `).join("");
+}
+
+function renderServices(){
+  servicesTable.innerHTML = services.map((s,i)=>`
+    <tr>
+      <td>${s.name}</td>
+      <td>${money(s.price)}</td>
+      <td>${s.unit}</td>
+      <td>
+        <button class="btn light" onclick="deleteService(${i})">Delete</button>
+      </td>
+    </tr>
+  `).join("");
+}
+
+function renderQueue(){
+  queueTable.innerHTML = jobOrders.map(o=>`
+    <tr>
+      <td>${o.no}</td>
+      <td>${o.customer}</td>
+      <td><span class="badge ${o.status === 'Ready for Pickup' ? 'green' : 'blue'}">${o.status}</span></td>
+      <td><span class="badge ${o.payment === 'Paid' ? 'green' : o.payment === 'Partial' ? 'orange' : 'blue'}">${o.payment}</span></td>
     </tr>
   `).join("");
 }
@@ -854,6 +1031,9 @@ function renderDashboard(){
 function renderAll(){
   renderDashboard();
   renderOrders();
+  renderCustomers();
+  renderServices();
+  renderQueue();
   loadOwnerSetup();
 }
 
