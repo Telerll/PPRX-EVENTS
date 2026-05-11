@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -32,9 +32,11 @@ body{
   min-height:100vh;
 }
 
+/* SIDEBAR */
 .sidebar{
   background:rgba(255,255,255,.72);
   backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
   border-right:1px solid rgba(15,76,129,.08);
   padding:24px;
   position:sticky;
@@ -50,26 +52,55 @@ body{
 }
 
 .logo-box{
-  width:56px;
-  height:56px;
-  border-radius:18px;
+  width:44px;
+  height:44px;
+  border-radius:15px;
+  padding:2px;
+  background:linear-gradient(145deg,rgba(255,255,255,.95),rgba(223,241,255,.45));
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.65);
   display:flex;
   align-items:center;
   justify-content:center;
-  background:linear-gradient(145deg,#0f4c81,#1d9bf0);
-  color:white;
-  font-weight:900;
-  font-size:24px;
-  box-shadow:0 12px 24px rgba(15,76,129,.22);
+  box-shadow:
+    0 10px 22px rgba(15,76,129,.18),
+    inset 0 1px 0 rgba(255,255,255,.95);
+  position:relative;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+.logo-box::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:45%;
+  background:linear-gradient(180deg,rgba(255,255,255,.65),rgba(255,255,255,0));
+  pointer-events:none;
+  z-index:2;
+}
+
+.logo-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:12px;
+  position:relative;
+  z-index:1;
 }
 
 .brand h1{
-  font-size:24px;
+  font-size:18px;
+  line-height:1.1;
   color:#082f49;
 }
 
 .brand p{
-  font-size:13px;
+  font-size:11px;
+  line-height:1.2;
   color:#0f4c81;
   font-weight:700;
 }
@@ -90,6 +121,12 @@ body{
   color:#12334a;
   cursor:pointer;
   box-shadow:0 8px 18px rgba(15,76,129,.06);
+  transition:.2s ease;
+}
+
+.nav button:hover{
+  transform:translateX(4px);
+  background:#ffffff;
 }
 
 .nav button.active{
@@ -99,7 +136,8 @@ body{
 
 .owner-card{
   margin-top:24px;
-  background:white;
+  background:rgba(255,255,255,.82);
+  border:1px solid rgba(255,255,255,.75);
   border-radius:20px;
   padding:16px;
   box-shadow:0 10px 24px rgba(15,76,129,.08);
@@ -114,6 +152,7 @@ body{
   color:#64748b;
 }
 
+/* MAIN */
 .main{
   padding:32px;
 }
@@ -155,16 +194,23 @@ body{
   border-radius:16px;
   font-weight:900;
   cursor:pointer;
+  transition:.2s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
 }
 
 .btn.primary{
-  background:#0f4c81;
+  background:linear-gradient(135deg,#0f4c81,#1d9bf0);
   color:white;
+  box-shadow:0 10px 22px rgba(15,76,129,.18);
 }
 
 .btn.light{
   background:white;
   color:#0f4c81;
+  box-shadow:0 8px 18px rgba(15,76,129,.08);
 }
 
 .section{
@@ -175,6 +221,7 @@ body{
   display:block;
 }
 
+/* HERO */
 .hero{
   background:
     radial-gradient(circle at right,rgba(29,155,240,.20),transparent 32%),
@@ -237,6 +284,7 @@ body{
   margin-top:6px;
 }
 
+/* STATS */
 .stats{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
@@ -246,6 +294,7 @@ body{
 
 .stat{
   background:rgba(255,255,255,.82);
+  border:1px solid rgba(255,255,255,.75);
   border-radius:24px;
   padding:24px;
   box-shadow:0 14px 28px rgba(15,76,129,.08);
@@ -274,6 +323,7 @@ body{
   color:#071d2b;
 }
 
+/* DASHBOARD GRID */
 .dashboard-grid{
   display:grid;
   grid-template-columns:1.2fr .8fr;
@@ -283,6 +333,7 @@ body{
 .panel,
 .form-card{
   background:rgba(255,255,255,.86);
+  border:1px solid rgba(255,255,255,.75);
   border-radius:28px;
   padding:26px;
   box-shadow:0 14px 32px rgba(15,76,129,.09);
@@ -324,6 +375,7 @@ body{
   color:#082f49;
 }
 
+/* FORM */
 .form-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -360,6 +412,7 @@ input:focus,textarea:focus,select:focus{
   margin-top:18px;
 }
 
+/* TABLE */
 .table-wrap{
   overflow-x:auto;
 }
@@ -431,9 +484,9 @@ th{
   <aside class="sidebar">
     <div class="brand">
       <div class="logo-box">
-  <img src="lavanderoph-icon.png" alt="LavanderoPh Logo">
-</div>
+        <img src="lavanderoph-icon.png" alt="LavanderoPh Logo">
       </div>
+      <div>
         <h1>LavanderoPh</h1>
         <p>Laundry Management System</p>
       </div>
