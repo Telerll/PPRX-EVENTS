@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>LavanderoPh Laundry Management System</title>
-<meta name="theme-color" content="#0f4c81">
+<meta name="theme-color" content="#07152f">
 
 <style>
 *{
@@ -13,6 +13,19 @@
   padding:0;
   box-sizing:border-box;
   font-family:Arial,sans-serif;
+}
+
+:root{
+  --primary:#0f4c81;
+  --primary2:#1d9bf0;
+  --accent:#22d3ee;
+  --bg:#020617;
+  --bg2:#07152f;
+  --card:rgba(8,20,45,.82);
+  --card2:rgba(10,25,55,.92);
+  --line:rgba(59,130,246,.18);
+  --text:#f8fafc;
+  --muted:#94a3b8;
 }
 
 body{
@@ -23,6 +36,9 @@ body{
     radial-gradient(circle at top right,rgba(37,99,255,.25),transparent 34%),
     radial-gradient(circle at bottom left,rgba(14,165,255,.18),transparent 30%),
     linear-gradient(180deg,#020617,#07152f,#020617);
+  background-size:28px 28px,28px 28px,100% 100%,100% 100%,100% 100%;
+  color:var(--text);
+  overflow-x:hidden;
 }
 
 .app{
@@ -31,12 +47,11 @@ body{
   min-height:100vh;
 }
 
-/* SIDEBAR */
 .sidebar{
-  background:rgba(255,255,255,.72);
+  background:rgba(2,6,23,.88);
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
-  border-right:1px solid rgba(15,76,129,.08);
+  border-right:1px solid var(--line);
   padding:24px;
   position:sticky;
   top:0;
@@ -52,57 +67,35 @@ body{
 }
 
 .logo-box{
-  width:44px;
-  height:44px;
-  border-radius:15px;
+  width:52px;
+  height:52px;
+  border-radius:16px;
   padding:4px;
-  background:linear-gradient(145deg,rgba(255,255,255,.95),rgba(223,241,255,.45));
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  border:1px solid rgba(255,255,255,.65);
+  background:rgba(15,23,42,.9);
+  border:1px solid rgba(59,130,246,.25);
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:
-    0 10px 22px rgba(15,76,129,.18),
-    inset 0 1px 0 rgba(255,255,255,.95);
-  position:relative;
+  box-shadow:0 0 24px rgba(14,165,255,.18);
   overflow:hidden;
   flex-shrink:0;
-}
-
-.logo-box::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:45%;
-  background:linear-gradient(180deg,rgba(255,255,255,.65),rgba(255,255,255,0));
-  pointer-events:none;
-  z-index:2;
 }
 
 .logo-box img{
   width:100%;
   height:100%;
   object-fit:contain;
-  border-radius:11px;
-  position:relative;
-  z-index:1;
   display:block;
 }
 
 .brand h1{
   font-size:18px;
-  line-height:1.1;
-  color:#082f49;
+  color:#f8fafc;
 }
 
 .brand p{
   font-size:11px;
-  line-height:1.2;
-  color:#0f4c81;
+  color:#93c5fd;
   font-weight:700;
 }
 
@@ -113,47 +106,47 @@ body{
 }
 
 .nav button{
-  border:0;
-  background:rgba(255,255,255,.76);
+  border:1px solid rgba(59,130,246,.14);
+  background:rgba(8,20,45,.72);
   padding:15px 16px;
   border-radius:18px;
   text-align:left;
   font-weight:800;
-  color:#12334a;
+  color:#dbeafe;
   cursor:pointer;
-  box-shadow:0 8px 18px rgba(15,76,129,.06);
+  box-shadow:0 8px 20px rgba(0,0,0,.22);
   transition:.2s ease;
 }
 
 .nav button:hover{
   transform:translateX(4px);
-  background:#ffffff;
+  background:rgba(15,35,75,.95);
 }
 
 .nav button.active{
   background:linear-gradient(135deg,#0f4c81,#1d9bf0);
   color:white;
+  box-shadow:0 0 26px rgba(14,165,255,.28);
 }
 
 .owner-card{
   margin-top:24px;
-  background:rgba(255,255,255,.82);
-  border:1px solid rgba(255,255,255,.75);
+  background:var(--card);
+  border:1px solid var(--line);
   border-radius:20px;
   padding:16px;
-  box-shadow:0 10px 24px rgba(15,76,129,.08);
+  box-shadow:0 12px 30px rgba(0,0,0,.28);
 }
 
 .owner-card strong{
   display:block;
-  color:#082f49;
+  color:#f8fafc;
 }
 
 .owner-card small{
-  color:#64748b;
+  color:var(--muted);
 }
 
-/* MAIN */
 .main{
   padding:32px;
 }
@@ -167,7 +160,7 @@ body{
 }
 
 .eyebrow{
-  color:#0f4c81;
+  color:#38bdf8;
   font-size:13px;
   font-weight:900;
   letter-spacing:.8px;
@@ -176,40 +169,31 @@ body{
 
 .topbar h2{
   font-size:42px;
-  color:#071d2b;
+  color:var(--text);
 }
 
 .topbar p{
-  color:#64748b;
+  color:var(--muted);
   margin-top:6px;
 }
 
-/* TOP BRAND IDENTITY */
 .top-brand{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:rgba(255,255,255,.78);
+  background:var(--card);
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
   padding:14px 18px;
   border-radius:28px;
-  border:1px solid rgba(255,255,255,.80);
-  box-shadow:
-    0 12px 28px rgba(15,76,129,.12),
-    inset 0 1px 0 rgba(255,255,255,.95);
+  border:1px solid var(--line);
+  box-shadow:0 0 28px rgba(14,165,255,.14);
   overflow:hidden;
   flex-shrink:0;
 }
 
-.top-brand-banner{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
 .top-brand-banner img{
-  width:125px;
+  width:135px;
   height:auto;
   object-fit:contain;
   display:block;
@@ -232,18 +216,18 @@ body{
 .btn.primary{
   background:linear-gradient(135deg,#0f4c81,#1d9bf0);
   color:white;
-  box-shadow:0 10px 22px rgba(15,76,129,.18);
+  box-shadow:0 10px 22px rgba(14,165,255,.18);
 }
 
 .btn.light{
-  background:white;
-  color:#0f4c81;
-  box-shadow:0 8px 18px rgba(15,76,129,.08);
+  background:#0f172a;
+  color:#dbeafe;
+  border:1px solid rgba(59,130,246,.16);
 }
 
 .btn.danger{
-  background:#fee2e2;
-  color:#991b1b;
+  background:#7f1d1d;
+  color:#fee2e2;
 }
 
 .section{
@@ -254,30 +238,29 @@ body{
   display:block;
 }
 
-/* HERO */
 .hero{
   background:
-    radial-gradient(circle at right,rgba(29,155,240,.20),transparent 32%),
-    rgba(255,255,255,.78);
-  border:1px solid rgba(255,255,255,.8);
+    radial-gradient(circle at right,rgba(14,165,255,.16),transparent 32%),
+    var(--card);
+  border:1px solid var(--line);
   border-radius:34px;
   padding:36px;
   min-height:250px;
   display:grid;
   grid-template-columns:1fr 240px;
   align-items:center;
-  box-shadow:0 18px 44px rgba(15,76,129,.10);
+  box-shadow:0 18px 44px rgba(0,0,0,.30);
   overflow:hidden;
 }
 
 .hero h1{
   font-size:40px;
-  color:#071d2b;
+  color:var(--text);
   margin:12px 0;
 }
 
 .hero p{
-  color:#64748b;
+  color:var(--muted);
   font-size:18px;
   line-height:1.5;
 }
@@ -286,38 +269,39 @@ body{
   width:190px;
   height:290px;
   border-radius:38px;
-  background:#071d2b;
+  background:#020617;
   padding:18px;
   margin-left:auto;
-  box-shadow:0 22px 40px rgba(15,23,42,.22);
+  border:1px solid var(--line);
+  box-shadow:0 24px 42px rgba(0,0,0,.36);
 }
 
 .phone-inner{
-  background:#f8fdff;
+  background:#0f172a;
   height:100%;
   border-radius:28px;
   padding:18px;
 }
 
 .phone-card{
-  background:white;
+  background:rgba(15,23,42,.95);
+  border:1px solid rgba(59,130,246,.12);
   border-radius:16px;
   padding:14px;
   margin-bottom:12px;
 }
 
 .phone-card small{
-  color:#64748b;
+  color:var(--muted);
 }
 
 .phone-card strong{
   display:block;
   font-size:26px;
-  color:#0f4c81;
+  color:#38bdf8;
   margin-top:6px;
 }
 
-/* STATS */
 .stats{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
@@ -326,11 +310,11 @@ body{
 }
 
 .stat{
-  background:rgba(255,255,255,.82);
-  border:1px solid rgba(255,255,255,.75);
+  background:var(--card);
+  border:1px solid var(--line);
   border-radius:24px;
   padding:24px;
-  box-shadow:0 14px 28px rgba(15,76,129,.08);
+  box-shadow:0 14px 28px rgba(0,0,0,.26);
 }
 
 .stat .icon{
@@ -340,23 +324,24 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#dff1ff;
+  background:linear-gradient(135deg,#0f4c81,#1d9bf0);
+  color:white;
   font-size:24px;
   margin-bottom:14px;
+  box-shadow:0 0 22px rgba(14,165,255,.25);
 }
 
 .stat small{
-  color:#64748b;
+  color:var(--muted);
   font-size:15px;
 }
 
 .stat h3{
   font-size:34px;
   margin-top:12px;
-  color:#071d2b;
+  color:var(--text);
 }
 
-/* DASHBOARD GRID */
 .dashboard-grid{
   display:grid;
   grid-template-columns:1.2fr .8fr;
@@ -365,23 +350,23 @@ body{
 
 .panel,
 .form-card{
-  background:rgba(255,255,255,.86);
-  border:1px solid rgba(255,255,255,.75);
+  background:var(--card);
+  border:1px solid var(--line);
   border-radius:28px;
   padding:26px;
-  box-shadow:0 14px 32px rgba(15,76,129,.09);
+  box-shadow:0 16px 32px rgba(0,0,0,.26);
 }
 
 .panel h3,
 .form-card h3{
-  color:#071d2b;
+  color:var(--text);
   font-size:26px;
   margin-bottom:8px;
 }
 
 .panel p,
 .form-card p{
-  color:#64748b;
+  color:var(--muted);
   margin-bottom:20px;
 }
 
@@ -391,16 +376,17 @@ body{
 }
 
 .quick-item{
-  background:white;
-  border:0;
+  background:var(--card2);
+  border:1px solid rgba(59,130,246,.10);
   border-radius:18px;
   padding:18px;
   display:flex;
   align-items:center;
   gap:14px;
-  box-shadow:0 8px 18px rgba(15,76,129,.06);
+  box-shadow:0 8px 18px rgba(0,0,0,.22);
   cursor:pointer;
   text-align:left;
+  color:#dbeafe;
 }
 
 .quick-item:hover{
@@ -412,10 +398,9 @@ body{
 }
 
 .quick-item strong{
-  color:#082f49;
+  color:#f8fafc;
 }
 
-/* FORM */
 .form-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -425,17 +410,23 @@ body{
 label{
   display:block;
   font-weight:800;
-  color:#0f4c81;
+  color:#38bdf8;
   margin-bottom:6px;
 }
 
 input,textarea,select{
   width:100%;
   padding:14px;
-  border:1px solid #cbd5e1;
+  border:1px solid rgba(59,130,246,.16);
   border-radius:16px;
   outline:none;
-  background:white;
+  background:rgba(2,6,23,.72);
+  color:#f8fafc;
+}
+
+input::placeholder,
+textarea::placeholder{
+  color:#64748b;
 }
 
 textarea{
@@ -444,15 +435,14 @@ textarea{
 }
 
 input:focus,textarea:focus,select:focus{
-  border-color:#1d9bf0;
-  box-shadow:0 0 0 4px rgba(29,155,240,.12);
+  border-color:#38bdf8;
+  box-shadow:0 0 0 4px rgba(14,165,255,.12);
 }
 
 .form-actions{
   margin-top:18px;
 }
 
-/* TABLE */
 .table-wrap{
   overflow-x:auto;
 }
@@ -465,13 +455,14 @@ table{
 
 th,td{
   padding:14px;
-  border-bottom:1px solid #e2e8f0;
+  border-bottom:1px solid rgba(59,130,246,.08);
   text-align:left;
+  color:#dbeafe;
 }
 
 th{
-  color:#0f4c81;
-  background:#eaf8ff;
+  color:#93c5fd;
+  background:#0f172a;
 }
 
 .badge{
@@ -482,15 +473,45 @@ th{
   font-weight:900;
 }
 
-.blue{background:#dbeafe;color:#1d4ed8}
-.green{background:#dcfce7;color:#166534}
-.orange{background:#fef3c7;color:#92400e}
-.red{background:#fee2e2;color:#991b1b}
+.blue{background:#0b4a7a;color:#bfdbfe}
+.green{background:#064e3b;color:#bbf7d0}
+.orange{background:#78350f;color:#fde68a}
+.red{background:#7f1d1d;color:#fecaca}
 
 .action-row{
   display:flex;
   gap:6px;
   flex-wrap:wrap;
+}
+
+.footer{
+  margin-top:32px;
+  padding:20px;
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+  background:var(--card);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid var(--line);
+  border-radius:24px;
+  box-shadow:0 12px 24px rgba(0,0,0,.22);
+}
+
+.dev-logo-text{
+  font-size:17px;
+  font-weight:900;
+  color:#f8fafc;
+}
+
+.dev-logo-text span{
+  color:#84cc16;
+}
+
+.dev-logo-text sup{
+  font-size:10px;
+  color:#84cc16;
+  margin-left:2px;
 }
 
 @media(max-width:900px){
@@ -526,11 +547,11 @@ th{
 
   .top-brand{
     width:100%;
-    max-width:210px;
+    max-width:230px;
   }
 
   .top-brand-banner img{
-    width:135px;
+    width:145px;
   }
 
   .topbar h2{
@@ -603,63 +624,27 @@ th{
 
         <div class="phone-preview">
           <div class="phone-inner">
-            <div class="phone-card">
-              <small>In Process</small>
-              <strong id="phoneProcess">0</strong>
-            </div>
-            <div class="phone-card">
-              <small>Ready</small>
-              <strong id="phoneReady">0</strong>
-            </div>
-            <div class="phone-card">
-              <small>Unpaid</small>
-              <strong id="phoneUnpaid">0</strong>
-            </div>
+            <div class="phone-card"><small>In Process</small><strong id="phoneProcess">0</strong></div>
+            <div class="phone-card"><small>Ready</small><strong id="phoneReady">0</strong></div>
+            <div class="phone-card"><small>Unpaid</small><strong id="phoneUnpaid">0</strong></div>
           </div>
         </div>
       </div>
 
       <div class="stats">
-        <div class="stat">
-          <div class="icon">📋</div>
-          <small>Total Orders</small>
-          <h3 id="totalOrders">0</h3>
-        </div>
-        <div class="stat">
-          <div class="icon">🌀</div>
-          <small>In Process</small>
-          <h3 id="inProcess">0</h3>
-        </div>
-        <div class="stat">
-          <div class="icon">✅</div>
-          <small>Ready for Pickup</small>
-          <h3 id="readyPickup">0</h3>
-        </div>
-        <div class="stat">
-          <div class="icon">₱</div>
-          <small>Today’s Sales</small>
-          <h3 id="todaySales">₱0</h3>
-        </div>
+        <div class="stat"><div class="icon">📋</div><small>Total Orders</small><h3 id="totalOrders">0</h3></div>
+        <div class="stat"><div class="icon">🌀</div><small>In Process</small><h3 id="inProcess">0</h3></div>
+        <div class="stat"><div class="icon">✅</div><small>Ready for Pickup</small><h3 id="readyPickup">0</h3></div>
+        <div class="stat"><div class="icon">₱</div><small>Today’s Sales</small><h3 id="todaySales">₱0</h3></div>
       </div>
 
       <div class="dashboard-grid">
         <div class="panel">
           <h3>Notifications</h3>
           <div class="quick-list">
-            <button class="quick-item" onclick="showSectionById('queue')">
-              <span>✅</span>
-              <div><strong>Ready for pickup</strong><br><small id="notifReady">0 orders ready</small></div>
-            </button>
-
-            <button class="quick-item" onclick="showSectionById('payments')">
-              <span>💳</span>
-              <div><strong>Payment pending</strong><br><small id="notifUnpaid">0 unpaid orders</small></div>
-            </button>
-
-            <button class="quick-item" onclick="showSectionById('queue')">
-              <span>🧺</span>
-              <div><strong>Laundry in process</strong><br><small id="notifProcess">0 orders active</small></div>
-            </button>
+            <button class="quick-item" onclick="showSectionById('queue')"><span>✅</span><div><strong>Ready for pickup</strong><br><small id="notifReady">0 orders ready</small></div></button>
+            <button class="quick-item" onclick="showSectionById('payments')"><span>💳</span><div><strong>Payment pending</strong><br><small id="notifUnpaid">0 unpaid orders</small></div></button>
+            <button class="quick-item" onclick="showSectionById('queue')"><span>🧺</span><div><strong>Laundry in process</strong><br><small id="notifProcess">0 orders active</small></div></button>
           </div>
         </div>
 
@@ -679,60 +664,18 @@ th{
       <div class="form-card">
         <h3>Owner Setup</h3>
         <p>Set your laundry business information. This will appear on the dashboard, receipts, and QR status page.</p>
-
         <div class="form-grid">
-          <div>
-            <label>Laundry Business Name</label>
-            <input id="setupLaundryName" placeholder="Example: LavanderoPh Laundry Services">
-          </div>
-
-          <div>
-            <label>Owner Name</label>
-            <input id="setupOwnerName" placeholder="Owner Name">
-          </div>
-
-          <div>
-            <label>Contact Number</label>
-            <input id="setupContact" placeholder="09XXXXXXXXX">
-          </div>
-
-          <div>
-            <label>Business Address</label>
-            <input id="setupAddress" placeholder="Business Address">
-          </div>
-
-          <div>
-            <label>Tagline</label>
-            <input id="setupTagline" placeholder="Smart Wash. Simple Management.">
-          </div>
-
-          <div>
-            <label>Slogan</label>
-            <input id="setupSlogan" placeholder="Tigasin sa linis. Astig sa bango.">
-          </div>
-
-          <div>
-            <label>Opening Hours</label>
-            <input id="setupHours" placeholder="8:00 AM - 7:00 PM">
-          </div>
-
-          <div>
-            <label>Currency</label>
-            <select id="setupCurrency">
-              <option value="₱">₱ PHP</option>
-              <option value="$">$ USD</option>
-            </select>
-          </div>
-
-          <div style="grid-column:1/-1">
-            <label>Receipt Footer Message</label>
-            <textarea id="setupReceiptNote" placeholder="Please present this receipt when claiming laundry."></textarea>
-          </div>
+          <div><label>Laundry Business Name</label><input id="setupLaundryName" placeholder="Example: LavanderoPh Laundry Services"></div>
+          <div><label>Owner Name</label><input id="setupOwnerName" placeholder="Owner Name"></div>
+          <div><label>Contact Number</label><input id="setupContact" placeholder="09XXXXXXXXX"></div>
+          <div><label>Business Address</label><input id="setupAddress" placeholder="Business Address"></div>
+          <div><label>Tagline</label><input id="setupTagline" placeholder="Smart Wash. Simple Management."></div>
+          <div><label>Slogan</label><input id="setupSlogan" placeholder="Tigasin sa linis. Astig sa bango."></div>
+          <div><label>Opening Hours</label><input id="setupHours" placeholder="8:00 AM - 7:00 PM"></div>
+          <div><label>Currency</label><select id="setupCurrency"><option value="₱">₱ PHP</option><option value="$">$ USD</option></select></div>
+          <div style="grid-column:1/-1"><label>Receipt Footer Message</label><textarea id="setupReceiptNote" placeholder="Please present this receipt when claiming laundry."></textarea></div>
         </div>
-
-        <div class="form-actions">
-          <button class="btn primary" onclick="saveOwnerSetup()">Save Owner Setup</button>
-        </div>
+        <div class="form-actions"><button class="btn primary" onclick="saveOwnerSetup()">Save Owner Setup</button></div>
       </div>
     </section>
 
@@ -740,49 +683,19 @@ th{
       <div class="form-card">
         <h3>Job Orders</h3>
         <p>Create and manage laundry job orders.</p>
-
         <div class="form-grid">
           <input id="joNo" placeholder="Job Order No.">
           <input id="joCustomer" placeholder="Customer Name">
-          <select id="joService">
-            <option>Wash</option>
-            <option>Dry</option>
-            <option>Fold</option>
-            <option>Wash-Dry-Fold</option>
-            <option>Ironing</option>
-          </select>
+          <select id="joService"><option>Wash</option><option>Dry</option><option>Fold</option><option>Wash-Dry-Fold</option><option>Ironing</option></select>
           <input id="joQty" type="number" placeholder="Kilo / Pieces">
           <input id="joPrice" type="number" placeholder="Price">
-          <select id="joPayment">
-            <option>Unpaid</option>
-            <option>Partial</option>
-            <option>Paid</option>
-          </select>
-          <select id="joStatus">
-            <option>Received</option>
-            <option>Washing</option>
-            <option>Drying</option>
-            <option>Folding</option>
-            <option>Ready for Pickup</option>
-            <option>Released</option>
-          </select>
+          <select id="joPayment"><option>Unpaid</option><option>Partial</option><option>Paid</option></select>
+          <select id="joStatus"><option>Received</option><option>Washing</option><option>Drying</option><option>Folding</option><option>Ready for Pickup</option><option>Released</option></select>
         </div>
-
         <button class="btn primary" onclick="addJobOrder()">Add Job Order</button>
-
         <div class="table-wrap" style="margin-top:20px">
           <table>
-            <thead>
-              <tr>
-                <th>JO No.</th>
-                <th>Customer</th>
-                <th>Service</th>
-                <th>Total</th>
-                <th>Payment</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
+            <thead><tr><th>JO No.</th><th>Customer</th><th>Service</th><th>Total</th><th>Payment</th><th>Status</th><th>Actions</th></tr></thead>
             <tbody id="ordersTable"></tbody>
           </table>
         </div>
@@ -793,25 +706,15 @@ th{
       <div class="form-card">
         <h3>Customers</h3>
         <p>Manage customer records.</p>
-
         <div class="form-grid">
           <input id="customerName" placeholder="Customer Name">
           <input id="customerContact" placeholder="Contact Number">
           <input id="customerAddress" placeholder="Address">
         </div>
-
         <button class="btn primary" onclick="addCustomer()">Add Customer</button>
-
         <div class="table-wrap" style="margin-top:20px;">
           <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Contact Number</th>
-                <th>Address</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
+            <thead><tr><th>Name</th><th>Contact Number</th><th>Address</th><th>Actions</th></tr></thead>
             <tbody id="customersTable"></tbody>
           </table>
         </div>
@@ -822,29 +725,15 @@ th{
       <div class="form-card">
         <h3>Services & Pricing</h3>
         <p>Setup laundry services and rates.</p>
-
         <div class="form-grid">
           <input id="serviceName" placeholder="Service Name">
           <input id="servicePrice" type="number" placeholder="Price">
-          <select id="serviceUnit">
-            <option>Per Kilo</option>
-            <option>Per Piece</option>
-            <option>Fixed Rate</option>
-          </select>
+          <select id="serviceUnit"><option>Per Kilo</option><option>Per Piece</option><option>Fixed Rate</option></select>
         </div>
-
         <button class="btn primary" onclick="addService()">Add Service</button>
-
         <div class="table-wrap" style="margin-top:20px;">
           <table>
-            <thead>
-              <tr>
-                <th>Service</th>
-                <th>Price</th>
-                <th>Unit</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
+            <thead><tr><th>Service</th><th>Price</th><th>Unit</th><th>Actions</th></tr></thead>
             <tbody id="servicesTable"></tbody>
           </table>
         </div>
@@ -855,50 +744,24 @@ th{
       <div class="panel">
         <h3>Laundry Queue</h3>
         <p>Monitor active laundry status.</p>
-
         <div class="table-wrap">
           <table>
-            <thead>
-              <tr>
-                <th>JO No.</th>
-                <th>Customer</th>
-                <th>Status</th>
-                <th>Payment</th>
-              </tr>
-            </thead>
+            <thead><tr><th>JO No.</th><th>Customer</th><th>Status</th><th>Payment</th></tr></thead>
             <tbody id="queueTable"></tbody>
           </table>
         </div>
       </div>
     </section>
 
-    <section id="payments" class="section">
-      <div class="panel">
-        <h3>Payments</h3>
-        <p>Payment tracking module next.</p>
-      </div>
-    </section>
+    <section id="payments" class="section"><div class="panel"><h3>Payments</h3><p>Payment tracking module next.</p></div></section>
+    <section id="expenses" class="section"><div class="panel"><h3>Expenses</h3><p>Expense tracking module next.</p></div></section>
+    <section id="reports" class="section"><div class="panel"><h3>Reports</h3><p>Reports module next.</p></div></section>
+    <section id="settings" class="section"><div class="panel"><h3>Settings</h3><p>App settings module next.</p></div></section>
 
-    <section id="expenses" class="section">
-      <div class="panel">
-        <h3>Expenses</h3>
-        <p>Expense tracking module next.</p>
-      </div>
-    </section>
-
-    <section id="reports" class="section">
-      <div class="panel">
-        <h3>Reports</h3>
-        <p>Reports module next.</p>
-      </div>
-    </section>
-
-    <section id="settings" class="section">
-      <div class="panel">
-        <h3>Settings</h3>
-        <p>App settings module next.</p>
-      </div>
-    </section>
+    <footer class="footer">
+      © 2026 All rights reserved | Created by
+      <strong class="dev-logo-text">Lemon<span>Dev</span><sup>PH</sup></strong>
+    </footer>
 
   </main>
 </div>
@@ -930,7 +793,6 @@ function saveData(){
 function showSection(id,btn){
   document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
   document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("active"));
-
   document.getElementById(id).classList.add("active");
   btn.classList.add("active");
 
@@ -949,7 +811,6 @@ function showSection(id,btn){
 
   pageTitle.textContent = titles[id][0];
   pageSubtitle.textContent = titles[id][1];
-
   renderAll();
 }
 
@@ -982,7 +843,6 @@ function saveOwnerSetup(){
     currency:setupCurrency.value,
     receiptNote:setupReceiptNote.value || "Please present this receipt when claiming laundry."
   };
-
   saveData();
   renderAll();
   alert("Owner setup saved.");
@@ -1030,11 +890,9 @@ function addJobOrder(){
 function updateOrderStatus(i){
   const flow = ["Received","Washing","Drying","Folding","Ready for Pickup","Released"];
   const current = flow.indexOf(jobOrders[i].status);
-
   if(current < flow.length - 1){
     jobOrders[i].status = flow[current + 1];
   }
-
   saveData();
   renderAll();
 }
@@ -1072,18 +930,15 @@ function printReceipt(i){
       <h2>${ownerSetup.laundryName}</h2>
       <div class="center">${ownerSetup.tagline}</div>
       <div class="line"></div>
-
       <div class="row"><span>JO No.</span><strong>${o.no}</strong></div>
       <div class="row"><span>Customer</span><strong>${o.customer}</strong></div>
       <div class="row"><span>Service</span><strong>${o.service}</strong></div>
       <div class="row"><span>Qty</span><strong>${o.qty}</strong></div>
       <div class="row"><span>Payment</span><strong>${o.payment}</strong></div>
       <div class="row"><span>Status</span><strong>${o.status}</strong></div>
-
       <div class="line"></div>
       <div class="row total"><span>Total</span><strong>${money(o.total)}</strong></div>
       <div class="line"></div>
-
       <div class="note">
         ${ownerSetup.receiptNote}<br>
         ${ownerSetup.contact ? "Contact: " + ownerSetup.contact + "<br>" : ""}
@@ -1091,13 +946,11 @@ function printReceipt(i){
         Thank you for choosing LavanderoPh.
       </div>
     </div>
-
     <script>
       window.onload = function(){ window.print(); }
     <\/script>
   </body>
-  </html>
-  `;
+  </html>`;
 
   const printWindow = window.open("", "_blank", "width=400,height=650");
   printWindow.document.open();
@@ -1186,9 +1039,7 @@ function renderCustomers(){
       <td>${c.name}</td>
       <td>${c.contact}</td>
       <td>${c.address}</td>
-      <td>
-        <button class="btn danger" onclick="deleteCustomer(${i})">Delete</button>
-      </td>
+      <td><button class="btn danger" onclick="deleteCustomer(${i})">Delete</button></td>
     </tr>
   `).join("");
 }
@@ -1199,9 +1050,7 @@ function renderServices(){
       <td>${s.name}</td>
       <td>${money(s.price)}</td>
       <td>${s.unit}</td>
-      <td>
-        <button class="btn danger" onclick="deleteService(${i})">Delete</button>
-      </td>
+      <td><button class="btn danger" onclick="deleteService(${i})">Delete</button></td>
     </tr>
   `).join("");
 }
