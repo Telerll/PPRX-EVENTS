@@ -9,13 +9,10 @@
   --primary:#0ea5ff;
   --primary2:#2563ff;
   --accent:#22d3ee;
-
   --bg1:#020617;
   --bg2:#07152f;
-
   --text:#f8fafc;
   --muted:#94a3b8;
-
   --card:rgba(8,20,45,.82);
   --card2:rgba(10,25,55,.92);
   --line:rgba(59,130,246,.18);
@@ -312,9 +309,9 @@ body{
   margin:26px 0;
 }
 
-.stat{a
+.stat{
   background:var(--card);
-  border:1px solid var(--line);a
+  border:1px solid var(--line);
   border-radius:28px;
   padding:26px;
   box-shadow:
@@ -363,7 +360,7 @@ body{
   padding:26px;
   box-shadow:
     0 16px 32px rgba(0,0,0,.26),
-    inset 0 1px 0 rgba(255,255,255,.82;
+    inset 0 1px 0 rgba(255,255,255,.08);
 }
 
 .panel h3,
@@ -597,7 +594,6 @@ tr:hover td{
 
 /* MOBILE */
 @media(max-width:900px){
-
   .app{
     grid-template-columns:1fr;
   }
