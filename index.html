@@ -42,6 +42,7 @@ body{
   position:sticky;
   top:0;
   height:100vh;
+  overflow-y:auto;
 }
 
 .brand{
@@ -162,7 +163,7 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:16px;
+  gap:18px;
   margin-bottom:24px;
 }
 
@@ -188,43 +189,32 @@ body{
 .top-brand{
   display:flex;
   align-items:center;
-  gap:14px;
-  background:rgba(255,255,255,.76);
+  justify-content:center;
+  background:rgba(255,255,255,.78);
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
-  padding:10px 16px;
-  border-radius:24px;
-  border:1px solid rgba(255,255,255,.75);
+  padding:14px 18px;
+  border-radius:28px;
+  border:1px solid rgba(255,255,255,.80);
   box-shadow:
-    0 10px 24px rgba(15,76,129,.10),
-    inset 0 1px 0 rgba(255,255,255,.9);
-}
-
-.top-brand img{
-  width:58px;
-  height:58px;
-  object-fit:contain;
-  border-radius:18px;
+    0 12px 28px rgba(15,76,129,.12),
+    inset 0 1px 0 rgba(255,255,255,.95);
+  overflow:hidden;
   flex-shrink:0;
 }
 
-.top-brand-text{
+.top-brand-banner{
   display:flex;
-  flex-direction:column;
-  line-height:1.1;
+  align-items:center;
+  justify-content:center;
 }
 
-.top-brand-text strong{
-  font-size:20px;
-  color:#082f49;
-  font-weight:900;
-}
-
-.top-brand-text span{
-  font-size:12px;
-  color:#0f4c81;
-  font-weight:800;
-  opacity:.9;
+.top-brand-banner img{
+  width:125px;
+  height:auto;
+  object-fit:contain;
+  display:block;
+  border-radius:18px;
 }
 
 .btn{
@@ -514,6 +504,10 @@ th{
     height:auto;
   }
 
+  .main{
+    padding:18px;
+  }
+
   .hero{
     grid-template-columns:1fr;
   }
@@ -533,6 +527,11 @@ th{
 
   .top-brand{
     width:100%;
+    max-width:210px;
+  }
+
+  .top-brand-banner img{
+    width:135px;
   }
 
   .topbar h2{
@@ -576,38 +575,32 @@ th{
     </div>
   </aside>
 
- <main class="main">
+  <main class="main">
 
-  <div class="topbar">
+    <div class="topbar">
+      <div>
+        <div class="eyebrow">Owner Workspace</div>
+        <h2 id="pageTitle">Dashboard</h2>
+        <p id="pageSubtitle">Smart Wash. Simple Management.</p>
+      </div>
 
-    <div>
-      <div class="eyebrow">Owner Workspace</div>
-      <h2 id="pageTitle">Dashboard</h2>
-      <p id="pageSubtitle">Smart Wash. Simple Management.</p>
-    </div>
-
-    <div class="top-brand">
-      <div class="top-brand-banner">
-        <img src="lavanderoph-logo.png" alt="LavanderoPh Logo">
+      <div class="top-brand">
+        <div class="top-brand-banner">
+          <img src="lavanderoph-logo.png" alt="LavanderoPh Logo">
+        </div>
       </div>
     </div>
 
-  </div>
-
-  <section id="dashboard" class="section active">
-  <div class="hero">
-    <div>
-      <div class="eyebrow">Laundry Management System</div>
-
-      <h1 id="heroLaundryName">
-        LavanderoPh Laundry Management System
-      </h1>
-
-        <p id="heroDescription">
-          Manage laundry orders, customers, payments, receipts,
-          and QR status tracking in one clean dashboard.
-        </p>
-      </div>
+    <section id="dashboard" class="section active">
+      <div class="hero">
+        <div>
+          <div class="eyebrow">Laundry Management System</div>
+          <h1 id="heroLaundryName">LavanderoPh Laundry Management System</h1>
+          <p id="heroDescription">
+            Manage laundry orders, customers, payments, receipts,
+            and QR status tracking in one clean dashboard.
+          </p>
+        </div>
 
         <div class="phone-preview">
           <div class="phone-inner">
@@ -1219,7 +1212,7 @@ function renderQueue(){
     <tr>
       <td>${o.no}</td>
       <td>${o.customer}</td>
-      <td><span class="badge ${o.status === 'Ready for Pickup' ? 'green' : o.status === 'Released' ? 'orange' : 'blue'}">${o.status}</span></td>aa
+      <td><span class="badge ${o.status === 'Ready for Pickup' ? 'green' : o.status === 'Released' ? 'orange' : 'blue'}">${o.status}</span></td>
       <td><span class="badge ${o.payment === 'Paid' ? 'green' : o.payment === 'Partial' ? 'orange' : 'blue'}">${o.payment}</span></td>
     </tr>
   `).join("");
