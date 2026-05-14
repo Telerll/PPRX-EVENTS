@@ -561,7 +561,7 @@ tr:hover td{
   color:#f8fafc;
   display:inline-flex;
   align-items:flex-start;
-  gap:4px;
+  gap:0;
 }
 
 .dev-logo-text span{
