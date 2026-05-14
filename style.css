@@ -474,11 +474,12 @@ th{
 }
 
 .dev-logo-text sup{
-  font-size:10px;
+  font-size:9px;
   color:#84cc16;
-  margin-left:2px;
+  margin-left:3px;
   position:relative;
-  top:-0.5em;
+  top:-0.55em;
+  opacity:.9;
 }
 
 /* MOBILE */
