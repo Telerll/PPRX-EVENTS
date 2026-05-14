@@ -559,12 +559,18 @@ tr:hover td{
   font-size:18px;
   font-weight:900;
   color:#f8fafc;
-  display:inline-flex;
-  align-items:flex-start;
-  gap:0;
+  display:inline-block;
+  line-height:1;
+  white-space:nowrap;
+  letter-spacing:0;
+  word-spacing:0;
 }
 
 .dev-logo-text span{
+  margin:0;
+  padding:0;
+  letter-spacing:0;
+  word-spacing:0;
   color:#84cc16;
 }
 
@@ -575,6 +581,7 @@ tr:hover td{
 }
 
 .ph-badge{
+  display:inline-block;
   font-size:10px;
   padding:1px 6px;
   border-radius:999px;
@@ -584,6 +591,7 @@ tr:hover td{
   line-height:1;
   position:relative;
   top:-4px;
+  margin-left:4px!important;
   font-weight:900;
 }
 
