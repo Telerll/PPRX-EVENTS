@@ -556,28 +556,28 @@ tr:hover td{
 }
 
 .dev-logo-text{
+  display:inline-flex;
+  align-items:flex-start;
+  gap:0;
+  font-size:0;
+  line-height:1;
+  white-space:nowrap;
+}
+
+.lemon-word{
   font-size:18px;
   font-weight:900;
   color:#f8fafc;
-  display:inline-block;
-  line-height:1;
-  white-space:nowrap;
-  letter-spacing:0;
-  word-spacing:0;
+  margin:0!important;
+  padding:0!important;
 }
 
-.dev-logo-text span{
-  margin:0;
-  padding:0;
-  letter-spacing:0;
-  word-spacing:0;
+.dev-word{
+  font-size:18px;
+  font-weight:900;
   color:#84cc16;
-}
-
-.dev-logo-text sup{
-  font-size:10px;
-  color:#84cc16;
-  margin-left:2px;
+  margin:0!important;
+  padding:0!important;
 }
 
 .ph-badge{
