@@ -445,7 +445,7 @@ th{
   background:#0f172a;
 }
 
-/* FOOTER / CREDIT */
+/* FOOTER */
 .footer,
 .sidebar-credit,
 .app-credit{
@@ -469,8 +469,6 @@ th{
   font-size:18px;
   font-weight:900;
   color:#f8fafc;
-  display:inline-block;
-  line-height:1;
   white-space:nowrap;
 }
 
@@ -478,20 +476,19 @@ th{
   color:#84cc16;
 }
 
-.dev-logo-text .ph-box{
+.ph-box{
   display:inline-block;
-  font-size:9px;
+  font-size:8px;
   font-style:italic;
   font-weight:900;
-  padding:1px 5px;
-  margin-left:3px;
-  border:2px solid #84cc16;
-  border-radius:5px;
-  color:#f8fafc!important;
-  background:transparent;
+  padding:1px 4px;
+  margin-left:2px;
+  border:1.5px solid #84cc16;
+  border-radius:4px;
+  color:#fff !important;
   line-height:1;
   position:relative;
-  top:-7px;
+  top:-6px;
   transform:skew(-10deg);
 }
 
@@ -553,47 +550,4 @@ th{
     grid-template-columns:1fr;
   }
 
-}/* FINAL FOOTER FIX */
-.sidebar-credit.app-credit{
-  margin-top:40px !important;
-  padding:22px !important;
-  text-align:center !important;
-  color:#94a3b8 !important;
-  font-size:15px !important;
-  background:rgba(255,255,255,.06) !important;
-  border:1px solid rgba(255,255,255,.08) !important;
-  border-radius:28px !important;
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.25),
-    inset 0 1px 0 rgba(255,255,255,.06) !important;
-}
-
-.dev-logo-text{
-  font-size:18px !important;
-  font-weight:900 !important;
-  color:#f8fafc !important;
-  display:inline-block !important;
-  line-height:1 !important;
-  white-space:nowrap !important;
-}
-
-.dev-logo-text > span:not(.ph-box){
-  color:#84cc16 !important;
-}
-
-.dev-logo-text .ph-box{
-  display:inline-block !important;
-  font-size:8px !important;
-  font-style:italic !important;
-  font-weight:900 !important;
-  padding:1px 4px !important;
-  margin-left:3px !important;
-  border:2px solid #84cc16 !important;
-  border-radius:5px !important;
-  color:#f8fafc !important;
-  background:transparent !important;
-  line-height:1 !important;
-  position:relative !important;
-  top:-7px !important;
-  transform:skew(-10deg) !important;
 }
