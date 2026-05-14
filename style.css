@@ -186,7 +186,7 @@ body{
   font-size:20px;
 }
 
-/* TOP RIGHT BRAND - WHITE LOGO CARD */
+/* TOP RIGHT BRAND */
 .top-brand{
   display:flex;
   align-items:center;
@@ -229,7 +229,7 @@ body{
   display:block;
 }
 
-/* HERO - CLEANED, NO PHONE PREVIEW REQUIRED */
+/* HERO */
 .hero{
   background:
     radial-gradient(circle at right,rgba(14,165,255,.16),transparent 32%),
@@ -237,13 +237,10 @@ body{
   border:1px solid rgba(59,130,246,.18);
   border-radius:34px;
   padding:38px;
-  min-height:auto;
-  display:block;
   box-shadow:
     0 18px 44px rgba(0,0,0,.30),
     0 0 34px rgba(14,165,255,.10),
     inset 0 1px 0 rgba(255,255,255,.08);
-  overflow:hidden;
 }
 
 .hero h1{
@@ -260,7 +257,6 @@ body{
   max-width:850px;
 }
 
-/* KEEP HIDDEN IF OLD PHONE HTML STILL EXISTS */
 .phone-preview{
   display:none;
 }
@@ -340,7 +336,7 @@ body{
   margin-bottom:22px;
 }
 
-/* QUICK / TRACKER CARDS */
+/* QUICK ITEMS */
 .quick-list{
   display:grid;
   gap:14px;
@@ -357,25 +353,12 @@ body{
   box-shadow:0 8px 18px rgba(0,0,0,.22);
   transition:.2s ease;
   color:#dbeafe;
-  text-align:left;
   cursor:pointer;
 }
 
 .quick-item:hover{
   transform:translateY(-2px);
   border-color:rgba(14,165,255,.30);
-}
-
-.quick-item span{
-  font-size:24px;
-}
-
-.quick-item strong{
-  color:#f8fafc;
-}
-
-.quick-item small{
-  color:#cbd5e1;
 }
 
 /* FORMS */
@@ -402,12 +385,6 @@ select{
   outline:none;
   background:rgba(2,6,23,.72);
   color:#f8fafc;
-  transition:.18s ease;
-}
-
-input::placeholder,
-textarea::placeholder{
-  color:#64748b;
 }
 
 textarea{
@@ -422,10 +399,6 @@ select:focus{
   box-shadow:0 0 0 4px rgba(14,165,255,.12);
 }
 
-.form-actions{
-  margin-top:20px;
-}
-
 /* BUTTONS */
 .btn,
 .hero-btn{
@@ -434,19 +407,12 @@ select:focus{
   border-radius:18px;
   font-weight:900;
   cursor:pointer;
-  transition:.2s ease;
-}
-
-.btn:hover,
-.hero-btn:hover{
-  transform:translateY(-2px);
 }
 
 .btn.primary,
 .hero-btn.primary{
   background:linear-gradient(135deg,#0f4c81,#1d9bf0);
   color:white;
-  box-shadow:0 14px 28px rgba(14,165,255,.18);
 }
 
 .btn.light,
@@ -454,26 +420,6 @@ select:focus{
   background:#0f172a;
   color:#dbeafe;
   border:1px solid rgba(59,130,246,.16);
-  box-shadow:0 10px 18px rgba(0,0,0,.18);
-}
-
-.btn.danger{
-  background:#7f1d1d;
-  color:#fee2e2;
-  border:1px solid rgba(248,113,113,.30);
-}
-
-.btn.small{
-  padding:8px 10px;
-  font-size:12px;
-  border-radius:10px;
-}
-
-.hero-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:26px;
 }
 
 /* TABLE */
@@ -499,45 +445,6 @@ th{
   background:#0f172a;
 }
 
-tr:hover td{
-  background:rgba(14,165,255,.04);
-}
-
-/* BADGES */
-.badge{
-  display:inline-block;
-  padding:7px 12px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:900;
-}
-
-.blue{
-  background:#0b4a7a;
-  color:#bfdbfe;
-}
-
-.green{
-  background:#064e3b;
-  color:#bbf7d0;
-}
-
-.orange{
-  background:#78350f;
-  color:#fde68a;
-}
-
-.red{
-  background:#7f1d1d;
-  color:#fecaca;
-}
-
-.action-row{
-  display:flex;
-  gap:6px;
-  flex-wrap:wrap;
-}
-
 /* FOOTER */
 .footer{
   margin-top:40px;
@@ -555,11 +462,11 @@ tr:hover td{
     inset 0 1px 0 rgba(255,255,255,.06);
 }
 
+/* FIXED LEMONDEV */
 .dev-logo-text{
   display:inline-flex;
   align-items:flex-start;
   gap:0;
-  font-size:0;
   line-height:1;
   white-space:nowrap;
 }
@@ -568,16 +475,13 @@ tr:hover td{
   font-size:18px;
   font-weight:900;
   color:#f8fafc;
-  margin:0!important;
-  padding:0!important;
 }
 
 .dev-word{
   font-size:18px;
   font-weight:900;
   color:#84cc16;
-  margin:0!important;
-  padding:0!important;
+  margin-left:-1px;
 }
 
 .ph-badge{
@@ -591,12 +495,13 @@ tr:hover td{
   line-height:1;
   position:relative;
   top:-4px;
-  margin-left:4px!important;
+  margin-left:4px;
   font-weight:900;
 }
 
 /* MOBILE */
 @media(max-width:900px){
+
   .app{
     grid-template-columns:1fr;
   }
@@ -641,7 +546,6 @@ tr:hover td{
   }
 
   .hero{
-    grid-template-columns:1fr;
     padding:28px;
   }
 
@@ -649,19 +553,8 @@ tr:hover td{
     font-size:34px;
   }
 
-  .phone-preview{
-    display:none;
-  }
-
   .dashboard-grid{
     grid-template-columns:1fr;
   }
 
-  .hero-actions{
-    flex-direction:column;
-  }
-
-  .hero-btn{
-    width:100%;
-  }
 }
