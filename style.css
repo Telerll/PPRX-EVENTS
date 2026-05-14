@@ -476,6 +476,14 @@ th{
 .dev-logo-text sup{
   font-size:8px;
   color:#84cc16;
+  position:relative;
+  top:-8px;
+  left:-1px;
+}
+
+.dev-logo-text sup{
+  font-size:8px;
+  color:#84cc16;
   margin-left:3px;
   position:relative;
   top:-0.7em;
