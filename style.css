@@ -663,3 +663,52 @@ th{
   top:-6px !important;
   background:transparent !important;
 }
+.sidebar-credit.app-credit{
+  width:100%;
+  margin-top:40px;
+  padding:18px 22px;
+  text-align:center;
+  color:#94a3b8;
+  font-size:15px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:28px;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+.dev-logo-text{
+  display:inline-flex;
+  align-items:center;
+  gap:0;
+  margin-left:4px;
+  font-size:18px;
+  font-weight:900;
+  color:#f8fafc;
+  line-height:1;
+  white-space:nowrap;
+}
+
+.dev-green{
+  color:#84cc16;
+}
+
+.ph-card{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:13px;
+  min-width:21px;
+  padding:0 5px;
+  margin-left:3px;
+  font-size:8px;
+  font-style:italic;
+  font-weight:900;
+  color:#ffffff;
+  line-height:1;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(132,204,22,.85);
+  border-radius:999px;
+  transform:translateY(-6px);
+}
