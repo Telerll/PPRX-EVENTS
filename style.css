@@ -551,3 +551,29 @@ th{
   }
 
 }
+.sidebar-credit .dev-logo-text{
+  color:#fff !important;
+  font-size:18px !important;
+  font-weight:900 !important;
+  white-space:nowrap !important;
+}
+
+.sidebar-credit .dev-logo-text > span:first-child{
+  color:#84cc16 !important;
+}
+
+.sidebar-credit .ph-box{
+  display:inline-block !important;
+  font-size:8px !important;
+  font-style:italic !important;
+  font-weight:900 !important;
+  padding:1px 4px !important;
+  margin-left:2px !important;
+  border:1.5px solid #84cc16 !important;
+  border-radius:4px !important;
+  color:#fff !important;
+  line-height:1 !important;
+  position:relative !important;
+  top:-6px !important;
+  transform:skew(-10deg) !important;
+}
