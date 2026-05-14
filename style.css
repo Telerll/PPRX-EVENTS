@@ -462,41 +462,23 @@ th{
     inset 0 1px 0 rgba(255,255,255,.06);
 }
 
-/* FIXED LEMONDEV */
+/* LEMONDEVPH */
 .dev-logo-text{
-  display:inline-flex;
-  align-items:flex-start;
-  gap:0;
-  line-height:1;
-  white-space:nowrap;
-}
-
-.lemon-word{
   font-size:18px;
   font-weight:900;
   color:#f8fafc;
 }
 
-.dev-word{
-  font-size:18px;
-  font-weight:900;
+.dev-logo-text span{
   color:#84cc16;
-  margin-left:-1px;
 }
 
-.ph-badge{
-  display:inline-block;
+.dev-logo-text sup{
   font-size:10px;
-  padding:1px 6px;
-  border-radius:999px;
-  background:#eaffd0;
-  color:#4d7c0f!important;
-  border:1px solid #84cc16;
-  line-height:1;
+  color:#84cc16;
+  margin-left:2px;
   position:relative;
-  top:-4px;
-  margin-left:4px;
-  font-weight:900;
+  top:-0.5em;
 }
 
 /* MOBILE */
