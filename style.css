@@ -534,3 +534,16 @@ th{
   }
 
 }
+.quick-credit-logo-wrap{
+  display:inline-block;
+  width:120px;
+  height:42px;
+  overflow:hidden;
+  margin-top:6px;
+}
+
+.quick-credit-logo{
+  width:180px;
+  height:auto;
+  transform:translateX(-30px) translateY(-6px);
+}
