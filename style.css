@@ -364,13 +364,12 @@ body{
 }
 
 .quick-credit-logo{
-  width:150px;
+  width:130px;
   max-width:100%;
   height:auto;
   margin-top:6px;
   object-fit:contain;
   opacity:.96;
-}
   filter:
     drop-shadow(0 0 10px rgba(132,204,22,.10))
     drop-shadow(0 0 20px rgba(14,165,255,.06));
