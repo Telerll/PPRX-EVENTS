@@ -456,34 +456,31 @@ th{
 }
 
 main .footer-card .dev-logo-text{
-  display:inline-block;
-  margin-left:4px;
   font-size:18px;
   font-weight:900;
-  color:#ffffff;
+  color:#fff;
   white-space:nowrap;
-  line-height:1;
 }
 
-main .footer-card .dev-logo-text b{
+main .footer-card .dev-logo-text em{
   color:#84cc16;
+  font-style:normal;
 }
 
-main .footer-card .ph-card{
+main .footer-card .dev-logo-text small{
   display:inline-block;
-  padding:1px 5px;
   margin-left:3px;
+  padding:1px 5px;
   font-size:8px;
   font-style:italic;
   font-weight:900;
-  color:#ffffff;
+  color:#fff;
   border:1px solid #84cc16;
   border-radius:999px;
-  line-height:1;
+  background:rgba(255,255,255,.05);
   position:relative;
   top:-6px;
-  background:rgba(255,255,255,.05);
-
+}
 @media(max-width:900px){
 
   .app{
