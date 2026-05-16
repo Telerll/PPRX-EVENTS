@@ -67,7 +67,7 @@ body{
 }
 
 .logo-box img{
-  width:100%;
+  width:100%;fv
   height:100%;
   object-fit:contain;
   display:block;
@@ -442,10 +442,9 @@ th{
 }
 
 /* FINAL FOOTER */
-main .footer-card{
+
   margin:32px auto 0;
   width:100%;
-  min-height:64px;
   padding:18px 22px;
   text-align:center;
   color:#f8fafc;
@@ -454,8 +453,6 @@ main .footer-card{
   border:1px solid rgba(56,189,248,.38);
   border-radius:22px;
   box-shadow:0 12px 28px rgba(0,0,0,.35);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
 }
 
 main .footer-card .dev-logo-text{
@@ -463,12 +460,12 @@ main .footer-card .dev-logo-text{
   margin-left:4px;
   font-size:18px;
   font-weight:900;
-  color:#f8fafc;
-  line-height:1;
+  color:#ffffff;
   white-space:nowrap;
+  line-height:1;
 }
 
-main .footer-card .dev-green{
+main .footer-card .dev-logo-text b{
   color:#84cc16;
 }
 
@@ -480,13 +477,12 @@ main .footer-card .ph-card{
   font-style:italic;
   font-weight:900;
   color:#ffffff;
-  line-height:1;
-  background:rgba(255,255,255,.08);
   border:1px solid #84cc16;
   border-radius:999px;
+  line-height:1;
   position:relative;
   top:-6px;
-}
+  background:rgba(255,255,255,.05);
 
 @media(max-width:900px){
 
