@@ -372,10 +372,10 @@ body{
 }
 
 .quick-credit-logo{
-  width:170px;
+  width:220px;
   height:auto;
   display:block;
-  margin:8px auto 0;
+  margin:10px auto 0;
   object-fit:contain;
   opacity:.95;
   filter:
@@ -529,8 +529,3 @@ th{
     width:185px;
   }
 
-  .quick-credit-logo{
-    width:70px;
-  }
-
-}
