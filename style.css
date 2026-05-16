@@ -372,7 +372,7 @@ body{
 }
 
 .quick-credit-logo{
-  width:80px;
+  width:70px;
   height:auto;
   display:block;
   margin:6px auto 0;
@@ -530,7 +530,7 @@ th{
   }
 
   .quick-credit-logo{
-    width:80px;
+    width:70px;
   }
 
 }
@@ -543,7 +543,7 @@ th{
 }
 
 .quick-credit-logo{
-  width:160px;
+  width:120px;
   height:auto;
   transform:translateX(-30px) translateY(-6px);
 }
@@ -556,7 +556,7 @@ th{
 }
 
 .quick-credit-logo{
-  width:140px;
+  width:120px;
   height:auto;
   transform:translateX(-30px) translateY(-6px);
 }
